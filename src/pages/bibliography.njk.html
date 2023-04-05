@@ -1,0 +1,235 @@
+---js
+{
+  layout: "base",
+  templateEngineOverride: "liquid",
+  title: "Bibliography",
+  permalink: "bibliography/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}",
+  eleventyNavigation: {
+    key: "Bibliography",
+	parent: "About",
+    order: "8"
+  },
+  pagination: {
+    data: "collections.publications",
+    reverse: false,
+    alias: "publications",
+    size: 100,
+    before: function(paginationData, fullData) {
+      return paginationData.sort((a, b) => a.data.author.localeCompare(b.data.author));
+    }
+  }
+}
+---
+
+<h2>Publications</h2>
+
+<div class="projects">
+	
+	<h4>Articles</h4>
+				{%- for pub in publications -%}
+				
+				{% if 'article' == pub.data.group %}
+
+					{%bibtex%}@{{pub.data.type}}{% raw %}{{% endraw %}{{pub.data.pubkey}},
+						author = "{{pub.data.author}}",
+						title = "{{pub.data.title}}",
+						{%if pub.data.booktitle %}
+						booktitle = "{{pub.data.booktitle}}",
+						{% endif %}
+						{%if pub.data.editor %}
+						editor = "{{pub.data.editor}}",
+						{% endif %}
+						{%if pub.data.booktitle %}
+						pages = "{{pub.data.pages}}",
+						{% endif %}
+						{%if pub.data.journal %}
+						journal = "{{pub.data.journal}}",
+						{% endif %}
+						{%if pub.data.volume %}
+						volume = "{{pub.data.volume}}",
+						{% endif %}
+						{% if pub.data.url %}
+						url = "{{pub.data.url}}",
+						{% endif %}
+						year = "{{pub.data.year}}"
+						{% raw %}}{% endraw %}{%endbibtex%}
+
+{% endif %}
+
+					{% endfor %}
+					
+					
+						<h4>Chapters in Edited Volumes</h4>
+									{%- for pub in publications -%}
+				
+									{% if 'collection' == pub.data.group %}
+
+										{%bibtex%}@{{pub.data.type}}{% raw %}{{% endraw %}{{pub.data.pubkey}},
+											author = "{{pub.data.author}}",
+											title = "{{pub.data.title}}",
+											{%if pub.data.booktitle %}
+											booktitle = "{{pub.data.booktitle}}",
+											{% endif %}
+											{%if pub.data.editor %}
+											editor = "{{pub.data.editor}}",
+											{% endif %}
+											{%if pub.data.booktitle %}
+											pages = "{{pub.data.pages}}",
+											{% endif %}
+											{%if pub.data.journal %}
+											journal = "{{pub.data.journal}}",
+											{% endif %}
+											{%if pub.data.volume %}
+											volume = "{{pub.data.volume}}",
+											{% endif %}
+											{% if pub.data.url %}
+											url = "{{pub.data.url}}",
+											{% endif %}
+											year = "{{pub.data.year}}"
+											{% raw %}}{% endraw %}{%endbibtex%}
+
+					{% endif %}
+
+										{% endfor %}
+
+
+					
+						<h4>Contributions to Proceedings</h4>
+									{%- for pub in publications -%}
+				
+									{% if 'proceedings' == pub.data.group %}
+
+										{%bibtex%}@{{pub.data.type}}{% raw %}{{% endraw %}{{pub.data.pubkey}},
+											author = "{{pub.data.author}}",
+											title = "{{pub.data.title}}",
+											{%if pub.data.booktitle %}
+											booktitle = "{{pub.data.booktitle}}",
+											{% endif %}
+											{%if pub.data.editor %}
+											editor = "{{pub.data.editor}}",
+											{% endif %}
+											{%if pub.data.booktitle %}
+											pages = "{{pub.data.pages}}",
+											{% endif %}
+											{%if pub.data.journal %}
+											journal = "{{pub.data.journal}}",
+											{% endif %}
+											{%if pub.data.volume %}
+											volume = "{{pub.data.volume}}",
+											{% endif %}
+											{% if pub.data.url %}
+											url = "{{pub.data.url}}",
+											{% endif %}
+											year = "{{pub.data.year}}"
+											{% raw %}}{% endraw %}{%endbibtex%}
+
+					{% endif %}
+
+										{% endfor %}
+
+
+					
+						<h4>Popular Press</h4>
+									{%- for pub in publications -%}
+				
+									{% if 'press' == pub.data.group %}
+
+										{%bibtex%}@{{pub.data.type}}{% raw %}{{% endraw %}{{pub.data.pubkey}},
+											author = "{{pub.data.author}}",
+											title = "{{pub.data.title}}",
+											{%if pub.data.booktitle %}
+											booktitle = "{{pub.data.booktitle}}",
+											{% endif %}
+											{%if pub.data.editor %}
+											editor = "{{pub.data.editor}}",
+											{% endif %}
+											{%if pub.data.booktitle %}
+											pages = "{{pub.data.pages}}",
+											{% endif %}
+											{%if pub.data.journal %}
+											journal = "{{pub.data.journal}}",
+											{% endif %}
+											{%if pub.data.volume %}
+											volume = "{{pub.data.volume}}",
+											{% endif %}
+											{% if pub.data.url %}
+											url = "{{pub.data.url}}",
+											{% endif %}
+											year = "{{pub.data.year}}"
+											{% raw %}}{% endraw %}{%endbibtex%}
+
+					{% endif %}
+
+										{% endfor %}
+
+					
+						<h4>Literary Lab Pamphlets</h4>
+									{%- for pub in publications -%}
+				
+									{% if 'pamphlet' == pub.data.group %}
+
+										{%bibtex%}@{{pub.data.type}}{% raw %}{{% endraw %}{{pub.data.pubkey}},
+											author = "{{pub.data.author}}",
+											title = "{{pub.data.title}}",
+											{%if pub.data.booktitle %}
+											booktitle = "{{pub.data.booktitle}}",
+											{% endif %}
+											{%if pub.data.editor %}
+											editor = "{{pub.data.editor}}",
+											{% endif %}
+											{%if pub.data.booktitle %}
+											pages = "{{pub.data.pages}}",
+											{% endif %}
+											{%if pub.data.journal %}
+											journal = "{{pub.data.journal}}",
+											{% endif %}
+											{%if pub.data.volume %}
+											volume = "{{pub.data.volume}}",
+											{% endif %}
+											{% if pub.data.url %}
+											url = "{{pub.data.url}}",
+											{% endif %}
+											year = "{{pub.data.year}}"
+											{% raw %}}{% endraw %}{%endbibtex%}
+
+					{% endif %}
+
+										{% endfor %}
+
+
+
+					
+						<h4>Data-Sitters Club Books</h4>
+									{%- for pub in publications -%}
+				
+									{% if 'dsc' == pub.data.group %}
+
+										{%bibtex%}@{{pub.data.type}}{% raw %}{{% endraw %}{{pub.data.pubkey}},
+											author = "{{pub.data.author}}",
+											title = "{{pub.data.title}}",
+											{%if pub.data.booktitle %}
+											booktitle = "{{pub.data.booktitle}}",
+											{% endif %}
+											{%if pub.data.editor %}
+											editor = "{{pub.data.editor}}",
+											{% endif %}
+											{%if pub.data.booktitle %}
+											pages = "{{pub.data.pages}}",
+											{% endif %}
+											{%if pub.data.journal %}
+											journal = "{{pub.data.journal}}",
+											{% endif %}
+											{%if pub.data.volume %}
+											volume = "{{pub.data.volume}}",
+											{% endif %}
+											{% if pub.data.url %}
+											url = "{{pub.data.url}}",
+											{% endif %}
+											year = "{{pub.data.year}}"
+											{% raw %}}{% endraw %}{%endbibtex%}
+
+					{% endif %}
+
+										{% endfor %}
+
+</div>

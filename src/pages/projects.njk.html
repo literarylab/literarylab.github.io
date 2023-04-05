@@ -1,0 +1,78 @@
+---js
+{
+  layout: "base",
+  title: "Lab Projects",
+  permalink: "projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1}}/{% endif %}",
+  eleventyNavigation: {
+    key: "Projects",
+    order: "5"
+  },
+  pagination: {
+    data: "collections.projects",
+    reverse: true,
+    alias: "projects",
+    size: 100,
+    before: function(paginationData, fullData) {
+      return paginationData.sort((a, b) => a.data.date_updated - b.data.date_updated);
+    }
+  }
+}
+---
+
+<div class="jumplinks-container">
+<div>
+<h2>Lab Projects</h2>
+
+<p>See past projects in the <a href="/projects/archive/">project archive<a>.</p>
+
+<div class="projects">
+
+  <div class="grid">
+    <section id="cards" class="pt-0">
+           <div class="wrapper wrapper--big">
+               <div class="card__container">
+                       {%-for post in pagination.items-%}
+					   {% if 'lab' == post.data.type %}
+					   {% if post.data.status %}
+					   {% if 'archive' !== post.data.status %}
+					   
+				       <div class="card__item cf" id="{{ post.data.key }}">
+				           <div class="card__image">
+				               <a href="{{post.data.permalink}}">
+				                   <div class="image">
+				                       <img src="{{ post.data.image }}" alt="">
+				                   </div>
+				               </a>
+				           </div>
+				           <div class="card__content">
+				               <a href="{{post.data.permalink | url}}">
+				                   <h3 class="mb-sm">{{ post.data.title }}</h3>
+				               </a>
+				               <div class="card__excerpt">
+				                   <p>{{ post.data.shortdesc}}</p>
+				               </div>
+				           </div>
+				       </div>
+					   
+					   {% endif %}
+					   {% endif %}
+					   {% endif %}
+                   {% endfor %}
+               </div>
+           </div>
+       </section>
+  </div>
+</div>
+
+</div>
+
+<aside class="jumplinks card">
+  <ul>
+    {%- for post in pagination.items -%}
+    {% if post.data.status and (post.data.status !== "archive") %}
+    <li><a href="#{{post.data.key}}">{{post.data.title}}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</aside>
+</div>

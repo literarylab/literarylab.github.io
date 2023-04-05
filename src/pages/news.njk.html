@@ -1,0 +1,28 @@
+---
+layout: base
+permalink: "news/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
+eleventyNavigation:
+  key: News
+  order: 3
+pagination:
+  data: collections.news
+  size: 10
+  alias: news
+  reverse: true
+---
+<h2>News</h2>
+
+  {%- for post in news -%}
+<div class="post">
+      <h3 class="post"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+
+<p><em>{{ post.date | postDate}}</em></p>
+
+
+      {% if post.data.teaser %}
+        <p>{{ post.data.teaser }} <a href="{{ post.url | url }}">Read more.</a></p>
+      {% endif %}
+  </div> 
+  {%- endfor -%} 
+
+  {% include "../includes/pagination.njk" %}

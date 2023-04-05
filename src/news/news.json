@@ -1,0 +1,5 @@
+{
+  "layout": "post.njk",
+  "tags": ["posts", "news"],
+  "permalink": "news/{{date | numericDate}}-{{ title | slugify }}/"
+}

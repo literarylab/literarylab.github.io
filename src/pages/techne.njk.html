@@ -1,0 +1,35 @@
+---
+layout: base
+permalink: "techne/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
+eleventyNavigation:
+  key: Techne
+  order: 7
+pagination:
+  data: collections.techne
+  size: 10
+  alias: techne
+  reverse: true
+---
+
+<h2>Techne</h2>
+
+  {%- for post in techne -%}
+<div class="post">
+      <h3 class="post"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+
+<p><em>      {% for author in post.data.authors%}
+  {% set author_loop = loop %}
+{%- for person in LabPeople -%}
+    {%- if author == person.key -%}
+{{- person.name -}}{{ ", " if not author_loop.last }}{% endif %}{% endfor %}{% endfor %};
+{{ post.date | postDate}}</em></p>
+
+
+      {% if post.data.teaser %}
+        <p>{{ post.data.teaser }} <a href="{{ post.url | url }}">Read more.</a></p>
+      {% endif %}
+  </div>
+  {%- endfor -%}
+
+  {% include "../includes/pagination.njk" %}
+

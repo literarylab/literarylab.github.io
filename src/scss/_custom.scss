@@ -1,0 +1,261 @@
+/* via https://getbootstrap.com/docs/5.0/examples/jumbotron/ */
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+/* for bootstrap-icons (svg) */
+.bi {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+}
+
+.img-fit-cover-container {
+  &.rounded-3 {
+    picture img {
+      border-radius: 0.3rem !important;
+    }
+  }
+  picture {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  picture img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+  }
+}
+
+.pamphletbox {
+  float:right;
+  clear:both;
+  margin-left:10px;
+}
+
+.projectbox {
+  float:right;
+  clear:both;
+  margin-left:10px;
+}
+
+a {
+	color: #9d1c32;
+	text-decoration:none;
+}
+
+.btn {
+	color:#ffffff;
+}
+
+div.csl-bib-body {
+	width:100%;
+	display:block;
+	clear:both;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+h3 + div.labcore {
+  margin-top: 1em;
+}
+
+div.labcore {
+  display: grid;
+  grid-template-areas: "image name" "bio bio";
+  justify-items: start;
+  align-items: center;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+  gap: 1em;
+
+  h4 {
+    grid-area: name;
+  }
+
+  p {
+    grid-area: bio;
+  }
+
+  img {
+    grid-area: image;
+    max-width: 100%;
+    width: 200px;
+  }
+}
+
+@media (min-width: 576px) {
+  div.labcore {
+    grid-template-areas: "name name" "image bio";
+    align-items: start;
+    justify-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  div.labcore {
+    grid-template-areas: "image name" "image bio";
+    justify-items: start;
+  }
+}
+
+@media (min-width: 1200px) {
+  div.labcore {
+    grid-template-areas: "image name bio";
+
+    h4 {
+      width: 200px;
+    }
+  }
+}
+
+div.labcore ~ table {
+  td:first-child {
+    width: 300px;
+  }
+}
+
+div.pamphlet {
+	display:block;
+	margin-bottom: 10px;
+  text-align: center;
+  max-width:800px;
+  scroll-margin-top: 2em;
+  margin-top: 2em;
+
+  h4, p {
+    text-align: left;
+  }
+
+  img {
+    max-width: 100%;
+    width: 800px;
+  }
+}
+
+
+
+
+
+h4.frontslide {
+	font-size: 1.1em;
+}
+
+
+	* {
+	  box-sizing: border-box;
+	}
+
+	/* Position the image container (needed to position the left and right arrows) */
+	.container {
+	  position: relative;
+	}
+
+	/* Hide the images by default */
+	.mySlides {
+	  display: none;
+	}
+
+	/* Add a pointer when hovering over the thumbnail images */
+	.cursor {
+	  cursor: pointer;
+	}
+
+	/* Next & previous buttons */
+	.prev,
+	.next {
+	  cursor: pointer;
+	  position: absolute;
+	  top: 40%;
+	  width: auto;
+	  padding: 16px;
+	  margin-top: -50px;
+	  color: white;
+	  font-weight: bold;
+	  font-size: 20px;
+	  border-radius: 0 3px 3px 0;
+	  user-select: none;
+	  -webkit-user-select: none;
+	}
+
+	/* Position the "next button" to the right */
+	.next {
+	  right: 0;
+	  border-radius: 3px 0 0 3px;
+	}
+
+	/* On hover, add a black background color with a little bit see-through */
+	.prev:hover,
+	.next:hover {
+	  background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	/* Number text (1/3 etc) */
+	.numbertext {
+	  color: #f2f2f2;
+	  font-size: 12px;
+	  padding: 8px 12px;
+	  position: absolute;
+	  top: 0;
+	}
+
+	/* Container for image text */
+	.caption-container {
+	  text-align: center;
+	  background-color: #222;
+	  padding: 2px 16px;
+	  color: white;
+	}
+
+	.row:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+
+	/* Six columns side by side */
+	.column {
+	  float: left;
+	  width: 16.66%;
+	}
+
+	/* Add a transparency effect for thumnbail images */
+	.demo {
+	  opacity: 0.6;
+	}
+
+	.active,
+	.demo:hover {
+	  opacity: 1;
+	}
+	
+
+	h3 {
+		margin-top:30px;
+	}
+	
+	h3.post {
+		font-size: 1.3em;
+		margin-bottom:0px;
+	}
+	
+	div.post {
+		margin-bottom:20px;
+		padding-bottom:10px;
+	}

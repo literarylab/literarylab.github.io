@@ -1,0 +1,26 @@
+---
+layout: base
+---
+{%- set comma = joiner(", ") -%}
+<!-- page.html -->
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ title }}</h1>
+    
+    {% if authors %}
+    <!-- author information-->
+    <p>
+    {%-for author in authors-%}
+    {%-for person in LabPeople-%}
+    {%-if author == person.key-%}
+    {{-comma()-}}{{-person.name-}}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}{% if date %}; {{date | postDate}}{% endif %}</p>
+    {% endif %}
+  </header>
+
+  
+  <div> {{content | safe}} </div>
+</div>
