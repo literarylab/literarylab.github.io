@@ -69,8 +69,10 @@
 <aside class="jumplinks card">
   <ul>
     {%- for post in pagination.items -%}
+	{% if 'lab' == post.data.type %}
     {% if post.data.status and (post.data.status !== "archive") %}
     <li><a href="#{{post.data.key}}">{{post.data.title}}</a></li>
+	{% endif %}
     {% endif %}
     {% endfor %}
   </ul>
