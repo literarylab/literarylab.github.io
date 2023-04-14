@@ -3,7 +3,7 @@ permalink: '/techne/new-litlab-website/'
 title: "A New LitLab Website"
 authors: [mwarner, qdombrowski]
 projects:
-date: 2023-04-05
+date: 2023-04-13
 teaser: "We're pleased to introduce the new website for the Stanford Literary Lab; it's the first overhaul of the site since 2015, and the first time the site has moved off of WordPress."
 ---
 
