@@ -27,9 +27,9 @@
 					   {% if post.data.pamphlet %}
 					   
 					   <div class="pamphlet" id="{{post.data.pubkey}}">
-					   <h4><a href="assets/pdf/{{post.data.pamphlet.pdf}}">{{post.data.title}}</a></h4>
+					   <h4><a href="/assets/pdf/{{post.data.pamphlet.pdf}}">{{post.data.title}}</a></h4>
 					  
-					   <a href="assets/pdf/{{post.data.pamphlet.pdf}}"><img src="{{post.data.pamphlet.image}}" alt="pamphlet cover for {{post.data.title}}"  /></a>
+					   <a href="/assets/pdf/{{post.data.pamphlet.pdf}}"><img src="{{post.data.pamphlet.image}}" alt="pamphlet cover for {{post.data.title}}"  /></a>
 					   <p>{{post.data.pamphlet.blurb}} <a href="/assets/pdf/{{post.data.pamphlet.pdf}}">Download PDF</a>
 					   
 					   {% if post.data.project %}
