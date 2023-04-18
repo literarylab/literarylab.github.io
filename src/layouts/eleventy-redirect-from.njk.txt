@@ -18,7 +18,7 @@
     },
     addAllPagesToCollections: false,
   },
-  permalink: "{{ redirect.from }}/index.html",
+  permalink: "{{ redirect.from }}.pdf",
   eleventyExcludeFromCollections: true,
 }
 ---
