@@ -69,6 +69,19 @@ eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet2.pdf": "
 eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet3.pdf": "./LiteraryLabPamphlet3.pdf" });
 eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet4.pdf": "./LiteraryLabPamphlet4.pdf" });
 eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet5.pdf": "./LiteraryLabPamphlet5.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet6.pdf": "./LiteraryLabPamphlet6.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet7.pdf": "./LiteraryLabPamphlet7.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet8.pdf": "./LiteraryLabPamphlet8.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet9.pdf": "./LiteraryLabPamphlet9.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet10.pdf": "./LiteraryLabPamphlet10.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet11.pdf": "./LiteraryLabPamphlet11.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet12.pdf": "./LiteraryLabPamphlet12.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet13.pdf": "./LiteraryLabPamphlet13.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet14.pdf": "./LiteraryLabPamphlet14.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet15.pdf": "./LiteraryLabPamphlet15.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet16.pdf": "./LiteraryLabPamphlet16.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet17.pdf": "./LiteraryLabPamphlet17.pdf" });
+
 
 	
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
