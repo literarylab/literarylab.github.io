@@ -63,6 +63,8 @@ async function imageShortcode(src, alt, sizes = "100vw") {
 module.exports = function (eleventyConfig) {
 	
 eleventyConfig.addPassthroughCopy("src/CNAME");
+
+eleventyConfig.addPassthroughCopy({ "assets/pdf/LiteraryLabPamphlet1.pdf": "." });
 	
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
