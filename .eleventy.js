@@ -64,11 +64,11 @@ module.exports = function (eleventyConfig) {
 	
 eleventyConfig.addPassthroughCopy("src/CNAME");
 
-eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet1.pdf": "." });
-eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet2.pdf": "." });
-eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet3.pdf": "." });
-eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet4.pdf": "." });
-eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet5.pdf": "." });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet1.pdf": "./LiteraryLabPamphlet1.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet2.pdf": "./LiteraryLabPamphlet2.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet3.pdf": "./LiteraryLabPamphlet3.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet4.pdf": "./LiteraryLabPamphlet4.pdf" });
+eleventyConfig.addPassthroughCopy({ "src/assets/pdf/LiteraryLabPamphlet5.pdf": "./LiteraryLabPamphlet5.pdf" });
 
 	
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
