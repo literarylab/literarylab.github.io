@@ -5,7 +5,7 @@ author: 'J.D. Porter'
 title: 'Popularity/Prestige'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '17'
-url: 'LiteraryLabPamphlet17.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet17.pdf'
 year: 2018
 project: 'popularity-prestige'
 group: 'pamphlet'

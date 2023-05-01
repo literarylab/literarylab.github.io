@@ -5,7 +5,7 @@ author: 'Heuser, Ryan and Moretti, Franco and Steiner, Erik'
 title: 'The Emotions of London'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '13'
-url: 'LiteraryLabPamphlet13.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet13.pdf'
 year: 2016
 project:
 group: 'pamphlet'

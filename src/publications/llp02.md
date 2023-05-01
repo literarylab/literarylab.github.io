@@ -5,7 +5,7 @@ author: 'Allison, Sarah and Heuser, Ryan and Jockers, Matthew and Moretti, Franc
 title: 'Network Theory, Plot Analysis'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '2'
-url: 'LiteraryLabPamphlet2.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet2.pdf'
 year: 2011
 project: 'network-theory-plot-analysis'
 group: 'pamphlet'

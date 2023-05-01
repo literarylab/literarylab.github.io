@@ -5,7 +5,7 @@ author: 'Algee-Hewitt, Mark and Allison, Sarah and Gemma, Marissa and Heuser, Ry
 title: 'Canon/Archive. Large-scale Dynamics in the Literary Field'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '11'
-url: 'LiteraryLabPamphlet11.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet11.pdf'
 year: 2016
 project:
 group: 'pamphlet'

@@ -5,7 +5,7 @@ author: 'Heuser, Ryan and Le-Khac, Long'
 title: 'A Quantitative Literary History of 2,958 Nineteenth-Century British Novels: The Semantic Cohort Method'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '4'
-url: 'LiteraryLabPamphlet4.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet4.pdf'
 year: 2012
 project: '19c-british-novels'
 group: 'pamphlet'

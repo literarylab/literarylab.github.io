@@ -5,7 +5,7 @@ author: 'Kanatova, Maria and Milyakina, Alexandra and Pilipovec, Tatyana and She
 title: 'Broken Time, Continued Evolution: Anachronies in Contemporary Films'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '14'
-url: 'LiteraryLabPamphlet14.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet14.pdf'
 year: 2017
 project:
 group: 'pamphlet'

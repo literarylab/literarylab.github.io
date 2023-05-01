@@ -5,7 +5,7 @@ author: 'Finn, Ed'
 title: 'Becoming Yourself: The Afterlife of Reception'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '3'
-url: 'LiteraryLabPamphlet3.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet3.pdf'
 year: 2011
 project: 'afterlife-reception'
 group: 'pamphlet'

@@ -5,7 +5,7 @@ author: 'Allison, Sarah and Heuser, Ryan and Jockers, Matthew and Moretti, Franc
 title: 'Quantitative Formalism: An Experiment'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '1'
-url: 'LiteraryLabPamphlet1.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet1.pdf'
 year: 2011
 project: 'quantitative-formalism'
 group: 'pamphlet'

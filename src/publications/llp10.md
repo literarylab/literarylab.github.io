@@ -5,7 +5,7 @@ author: 'Moretti, Franco and Pestre, Dominique'
 title: 'On Paragraphs. Scale, Themes, and Narrative Form'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '10'
-url: 'LiteraryLabPamphlet10.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet10.pdf'
 year: 2015
 project:
 group: 'pamphlet'

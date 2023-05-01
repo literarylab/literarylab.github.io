@@ -5,7 +5,7 @@ author: 'Moretti, Franco'
 title: 'Literature, Measured'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '12'
-url: 'LiteraryLabPamphlet12.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet12.pdf'
 year: 2016
 project:
 group: 'pamphlet'

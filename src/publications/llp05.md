@@ -5,7 +5,7 @@ author: 'Allison, Sarah and Gemma, Marissa and Heuser, Ryan and Moretti, Franco 
 title: 'Style at the Scale of the Sentence'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '5'
-url: 'LiteraryLabPamphlet5.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet5.pdf'
 year: 2013
 project:
 group: 'pamphlet'

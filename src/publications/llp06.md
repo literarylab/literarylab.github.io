@@ -5,7 +5,7 @@ author: 'Moretti, Franco'
 title: '“Operationalizing”: Or, the function of measurement in modern literary theory'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '6'
-url: 'LiteraryLabPamphlet6.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet6.pdf'
 year: 2013
 project: 'operationalizing'
 group: 'pamphlet'

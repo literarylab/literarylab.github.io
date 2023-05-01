@@ -5,7 +5,7 @@ author: 'Moretti, Franco'
 title: 'Patterns and Interpretation'
 journal: 'Stanford Literary Lab Pamphlets'
 volume: '15'
-url: 'LiteraryLabPamphlet15.pdf'
+url: 'https://litlab.stanford.edu/LiteraryLabPamphlet15.pdf'
 year: 2017
 project:
 group: 'pamphlet'
