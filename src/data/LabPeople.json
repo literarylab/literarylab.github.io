@@ -320,7 +320,8 @@
 	{
 		"key":"zleniarska",
 		"name":"Zuza Leniarska",
-		"status":"collaborator"
+		"status":"collaborator",
+		"affiliation":"University of Warsaw"
 	},
 	{
 		"key":"alenzo",
@@ -573,7 +574,8 @@
 	{
 		"key":"jwolf",
 		"name":"Jennifer Wolf",
-		"status":"collaborator"
+		"status":"collaborator",
+		"affiliation":"Stanford Graduate School of Education"
 	},
 	{
 		"key":"iyamboliev",
