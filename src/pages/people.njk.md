@@ -70,7 +70,7 @@ eleventyNavigation:
 {% if 'collaborator' in person.status %}
 <tr>
 	<td>{{person.name}}</td>
-	<td>{{person.email}}</td>
+	<td>{{person.affiliation}}</td>
 	<td>{% if person.website %}<a href="{{person.website}}">website</a>{% endif %}</td>
 </tr>
 {% endif %}
@@ -108,7 +108,7 @@ eleventyNavigation:
 
 <tr>
 	<td>{{person.name}}</td>
-	<td>{{person.email}}</td>
+	<td>{{person.affiliation}}</td>
 	<td>{% if person.website %}<a href="{{person.website}}">website</a>{% endif %}</td>
 <td>{% if person.institution %}{{person.institution}}{% endif %}</td>
 </tr>
