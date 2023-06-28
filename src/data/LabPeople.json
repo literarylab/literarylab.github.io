@@ -1,14 +1,20 @@
 [
-	{"key": "labbattista",
-	"name": "Luca Abbattista",
-	"email": "luca.abbattista@gmail.com",
-	"status": "alumni"},
-	
+	{
+		"key": "labbattista",
+		"name": "Luca Abbattista",
+		"email": "luca.abbattista@gmail.com",
+		"status": "alumni"
+	},
+	{
+		"key":"sabiatti",
+		"name":"Simone Abiatti",
+		"status":"collaborator",
+		"affiliation":"University of Bergamo"
+	},
 	{
 		"key":"radams",
 		"name":"Rebecca Adams"
 	},
-
 	{
 		"key":"malgeehewitt",
 		"name":"Mark Algee-Hewitt",
@@ -30,8 +36,11 @@
 		"key":"ealvarado",
 		"name":"Ena Alvarado"
 	},
-
-
+	{
+		"key":"kbarrett",
+		"name":"Kay Barrett",
+		"status":"member"
+	},
 	{
 		"key": "jbender",
 		"name": "John Bender",
@@ -62,10 +71,10 @@
 		"name":"Michaela Bronstein"
 	},
 	{
-	"key":"ebrush",
-	"name":"Emma Brush",
-	"status": "member",
-	"email": "ebrush@stanford.edu"
+		"key":"ebrush",
+		"name":"Emma Brush",
+		"status": "member",
+		"email": "ebrush@stanford.edu"
 	},
 	{
 		"key":"mberger",
@@ -73,6 +82,11 @@
 		"status":"alumni",
 		"affiliation":"Roger Williams University",
 		"email":"mburger@rwu.edu"
+	},
+	{
+		"key":"lburleson",
+		"name":"Lydia Burleson",
+		"status":"member"
 	},
 	{
 		"key":"abutlerwall",
@@ -90,19 +104,19 @@
 	{
 		"key":"cchen",
 		"name":"Cynthia Chen",
-		"status":"RA"
+		"status":"alumni"
 	},
 	{
-	"key":"qdombrowski",
-	"name":"Quinn Dombrowski",
-	"status": "member",
-	"email": "qad@stanford.edu"
+		"key":"qdombrowski",
+		"name":"Quinn Dombrowski",
+		"status": "member",
+		"email": "qad@stanford.edu"
 	},
 	{
-	"key":"sdouris",
-	"name":"Steele Douris",
-	"status": "member",
-	"email": "sdouris@stanford.edu"
+		"key":"sdouris",
+		"name":"Steele Douris",
+		"status": "member",
+		"email": "sdouris@stanford.edu"
 	},
 	{
 		"key":"adroge",
@@ -150,7 +164,7 @@
 		"status":"collaborator",
 		"affiliation": "University of Virginia"
 	},
-		{
+	{
 		"key":"lgalindoromero",
 		"name":"Laura Galindo-Romero"
 	},
@@ -159,22 +173,45 @@
 		"name":"Karen Ge"
 	},
 	{
+		"key":"mgemma",
+		"name":"Marissa Gemma",
+		"status":"alumni"
+	},
+	{
+		"key":"jgershon",
+		"name":"Julia Gershon",
+		"status":"RA"
+	},
+	{
+		"key":"vgoogasian",
+		"name":"Vickie Googasian",
+		"status":"alumni"
+	},
+	{
 		"key":"mgorshkova",
 		"name":"Masha Gorshkova"
 	},
 	{
-	"key":"sguhr",
-	"name":"Svenja Guhr",
-	"status": "collaborator",
-	"email": "svenja.guhr@tu-darmstadt.de"
+		"key":"sguhr",
+		"name":"Svenja Guhr",
+		"status": "collaborator",
+		"email": "svenja.guhr@tu-darmstadt.de",
+		"affiliation": "Technical University of Darmstadt"
 	},
 	{
 		"key":"chaberfield",
-		"name":"Catrin Haberfield"
+		"name":"Catrin Haberfield",
+		"status":"member"
 	},
 	{
 		"key":"shadi",
 		"name":"Shana Hadi"
+	},
+	{
+		"key":"ahanlon",
+		"name":"Aaron Hanlon",
+		"affiliation":"Colby College",
+		"status":"collaborator"
 	},
 	{
 		"key":"rheuser",
@@ -184,11 +221,23 @@
 		"affiliation": "Center for Digital Humanities, Princeton University"
 	},
 	{
+		"key":"mhill",
+		"name":"Mike Hill",
+		"affiliation":"SUNY Albany",
+		"status":"collaborator"
+	},
+	{
 		"key":"yilchuk",
 		"name":"Yuliya Ilchuk",
 		"status":"collaborator",
 		"affiliation": "Department of Slavic Languages and Literatures, Stanford University",
 		"email": "yilchuk@stanford.edu"
+	},
+	{
+		"key":"yigarashi",
+		"name":"Yohei Igarashi",
+		"affiliation":"University of Connecticut",
+		"status":"collaborator"
 	},
 	{
 		"key":"aisaacs",
@@ -199,10 +248,10 @@
 		"name":"Matthew Jockers"
 	},
 	{
-	"key":"njohnson",
-	"name":"Natasha Johnson",
-	"status": "member",
-	"email": "nmj@stanford.edu"
+		"key":"njohnson",
+		"name":"Natasha Johnson",
+		"status": "RA",
+		"email": "nmj@stanford.edu"
 	},
 	{
 		"key":"djurafsky",
@@ -213,10 +262,15 @@
 		"name":"Maria Kanatova"
 	},
 	{
-	"key":"akeener",
-	"name":"Alix Keener",
-	"status": "member",
-	"email": "alixkee@stanford.edu"
+		"key":"hkatsma",
+		"name": "Holst Katsma",
+		"status":"alumni"
+	},
+	{
+		"key":"akeener",
+		"name":"Alix Keener",
+		"status": "member",
+		"email": "alixkee@stanford.edu"
 	},
 	{
 		"key":"mkraxenberger",
@@ -224,6 +278,12 @@
 		"email":"maria.kraxenberger@googlemail.com",
 		"status":"alumni",
 		"affiliation": "University of Suttgart"
+	},
+	{
+		"key":"mkurzynski",
+		"name":"Maciej Kurzynski",
+		"affiliation":"University of Hong Kong",
+		"status":"collaborator"
 	},
 	{
 		"key":"alamar",
@@ -269,7 +329,7 @@
 	{
 		"key":"clindemann",
 		"name":"Charlotte Lindemann",
-		"labtitle":"Core Research Team",
+		"labtitle":"member",
 		"email": "cilindem@stanford.edu",
 		"bio": "Charlotte Lindemann is a PhD candidate in the department of English, working on 'Unreliable Dialogue: Characters’ Speech and the Disappearing Narrator in Nineteenth Century American Fiction'.",
 		"photo":"/assets/images/people/clindemann.jpg"
@@ -291,7 +351,9 @@
 	},
 	{
 		"key":"mmcgurl",
-		"name":"Mark McGurl"
+		"name":"Mark McGurl",
+		"status":"collaborator",
+		"affiliation": "Stanford English Department"
 	},
 	{
 		"key":"dmcclure",
@@ -302,6 +364,11 @@
 		"name":"Lisa Mendelman",
 		"status":"collaborator",
 		"affiliation": "Menlo College"
+	},
+	{
+		"key":"lmessarra",
+		"name":"Luca Messarra",
+		"status":"member"
 	},
 	{
 		"key":"amilyakina",
@@ -345,10 +412,10 @@
 		"photo":"/assets/images/people/nnomura.jpg"
 	},
 	{
-	"key":"uoh",
-	"name":"Unjoo Oh",
-	"status": "member",
-	"email": "ujoh@stanford.edu"
+		"key":"uoh",
+		"name":"Unjoo Oh",
+		"status": "member",
+		"email": "ujoh@stanford.edu"
 	},
 	{
 		"key":"dpestre",
@@ -373,13 +440,29 @@
 		"status": "collaborator",
 		"affiliation": "Price Lab; University of Pennsylvania"
 	},
-		{
+	{
+		"key":"kreardon",
+		"name":"Kelsey Reardon",
+		"status":"alumni"
+	},
+	{
 		"key":"mrozopaz",
 		"name":"Mariana Rozo Paz"
 	},
 	{
 		"key":"rrisam",
 		"name":"Roopika Risam"
+	},
+	{
+		"key":"rsaldívar",
+		"name":"Ramón Saldívar",
+		"status":"collaborator",
+		"affiliation":"Stanford English Department"
+	},
+	{
+		"key":"sschwarzhappel",
+		"name":"Sarah Sophie Schwarzhappel",
+		"status":"RA"
 	},
 	{
 		"key":"jsensenbaugh",
@@ -429,16 +512,16 @@
 		"name":"Justin Tackett"
 	},
 	{
-	"key":"rta",
-	"name":"Regina T.H. Tar",
-	"status": "member",
-	"email": "rta@stanford.edu"
+		"key":"rta",
+		"name":"Regina T.H. Ta",
+		"status": "alumni",
+		"email": "rta@stanford.edu"
 	},
 	{
-	"key":"mtekgurler",
-	"name":"Merve Tekgürler",
-	"status": "member",
-	"email": "mtekgurl@stanford.edu"
+		"key":"mtekgurler",
+		"name":"Merve Tekgürler",
+		"status": "member",
+		"email": "mtekgurl@stanford.edu"
 	},
 	{
 		"key":"kterry",
@@ -463,6 +546,12 @@
 		"photo":"/assets/images/people/cthong.jpg"
 	},
 	{
+		"key":"etreharne",
+		"name":"Elaine Treharne",
+		"status":"collaborator",
+		"affiliation":"Stanford English Department"
+	},
+	{
 		"key":"hwalser",
 		"name":"Hannah Walser",
 		"email":"hkpmwalser@gmail.com",
@@ -481,15 +570,19 @@
 		"key":"mwitmore",
 		"name":"Michael Witmore"
 	},
-		{
+	{
 		"key":"jwolf",
 		"name":"Jennifer Wolf",
 		"status":"collaborator"
 	},
 	{
-	"key":"syates",
-	"name":"Sabrina Gabrielle Yates",
-	"status": "member",
-	"email": "syates2@stanford.edu"
+		"key":"iyamboliev",
+		"name":"Irena Yamboliev",
+		"status":"alumni"
+	},
+	{
+		"key":"syates",
+		"name":"Sabrina Gabrielle Yates",
+		"email":"syates2@stanford.edu"
 	}
 ]
