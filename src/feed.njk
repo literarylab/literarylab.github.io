@@ -7,7 +7,7 @@
     "title": "Stanford Literary Lab",
     "subtitle": "A research collective that applies computational criticism, in all its forms, to the study of literature.",
     "language": "en",
-    "url": "https://litlab.stanford.edu",
+    "url": "https://litlab.stanford.edu/",
     "author": {
       "name": "Stanford Literary Lab",
       "email": "malgeehe@stanford.edu"
@@ -18,9 +18,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ site.title }}</title>
-  <subtitle>{{ site.subtitle }}</subtitle>
-  <link href="{{ site.feedUrl }}" rel="self"/>
-  <link href="{{ site.url }}"/>
+  <subtitle>{{ metadata.subtitle }}</subtitle>
+  <link href="{{ absoluteUrl(permalink) }}" rel="self"/>
+  <link href="{{ metadata.url }}"/>
   <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   <id>{{ metadata.url }}</id>
   <author>
