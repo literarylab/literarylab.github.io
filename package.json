@@ -30,7 +30,7 @@
     "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-img": "^2.0.0",
     "@11ty/eleventy-navigation": "^0.3.2",
-    "@11ty/eleventy-plugin-rss": "^1.1.1",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@popperjs/core": "^2.11.5",
     "accessible-menu-bootstrap-5": "^1.0.2",
     "autoprefixer": "^10.3.1",
