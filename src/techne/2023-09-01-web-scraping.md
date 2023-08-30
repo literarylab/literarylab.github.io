@@ -4,7 +4,7 @@ title: "Webscraping in the Digital Humanities: An Introduction"
 authors: [rseow]
 projects:
 date: 1990-09-03
-teaser: "A short introduction to web scraping by one of our former lab interns, who's recently has revived and polished some code we wrote for a project a few years back."
+teaser: "A short introduction to web scraping by Riley Seow, one of our former lab interns, who's recently has revived and polished some code we wrote for a project a few years back."
 ---
 
 ## Background
