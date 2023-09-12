@@ -74,10 +74,10 @@
             <a class="nav-link dropdown-toggle"
                 href="/about/"
                   role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                id="dropdown-776499">
+                id="dropdown-527809">
                 About <span class="visually-hidden">Toggle Dropdown About</span>
             </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdown-776499">
+            <ul class="dropdown-menu" aria-labelledby="dropdown-527809">
                 <li>
                     <a class="dropdown-item" href="/about/"><!-- About-->Overview</a>
                 </li><li>
@@ -98,10 +98,10 @@
             <a class="nav-link dropdown-toggle"
                 href="/projects/"
                   role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                id="dropdown-151976">
+                id="dropdown-337787">
                 Projects <span class="visually-hidden">Toggle Dropdown Projects</span>
             </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdown-151976">
+            <ul class="dropdown-menu" aria-labelledby="dropdown-337787">
                 <li>
                     <a class="dropdown-item" href="/projects/"><!-- Projects-->Overview</a>
                 </li><li>
@@ -150,7 +150,7 @@
 	
 
 
-Sep 3, 1990</p>
+Sep 3, 2023</p>
   </header>
 
   
@@ -212,7 +212,7 @@ https://www.shmoop.com/study-guides/literature/index/?p=3,
 <pre><code class="language-python">async def downloadAll(URLList):
     my_conn = aiohttp.TCPConnector(limit=20, ssl=False)
     my_timeout = aiohttp.ClientTimeout(total=900)
-    
+
     async with aiohttp.ClientSession(connector=my_conn, timeout=my_timeout) as session:
         # tasks = [ for each url in URLList: make HTML download request ]
 </code></pre>
@@ -246,7 +246,7 @@ async def downloadAll(URLList):
 def scrapeTitles(pageHTML):
     soup = BeautifulSoup(pageHTML, &quot;lxml&quot;, parse_only=SoupStrainer([&quot;div&quot;]))
     titles = soup.find_all(&quot;div&quot;, class_=&quot;item-info&quot;).text.strip()
-    
+
     # Store parsed information in variable fDataToWrite
     id = 0
     for title in titles:
@@ -259,7 +259,7 @@ def scrapeTitles(pageHTML):
 def scrapeTitles(pageHTML):
     root = lxml.html.fromstring(pageHTML)
     titles = root.xpath(&quot;//div[@class='item-info']/text()&quot;)
-    
+
     id = 0
     for title in titles:
         fDataToWrite.append([id++, title.strip()])
@@ -278,7 +278,7 @@ fWriter.writerow(fHeader)
 
 # Throughout parsing, save relevant information to list variable (fDataToWrite)
 # See previous code snippets
-    
+
 # Write out all rows of novel data to shmoop_novel_data.csv
 fWriter.writerows(fDataToWrite)
 
@@ -305,15 +305,12 @@ f.close()
 </ul>
 <h3>Function</h3>
 <ul>
-<li>
-<p>Consider your scraper's file structure. I found it helpful to have separate files for main, config (global variables storing parsed information), download, scrape, and two output .csv's.</p>
+<li>Consider your scraper's file structure. I found it helpful to have separate files for main, config (global variables storing parsed information), download, scrape, and two output .csv's.
 <ul>
 <li>In my main file, I imported the <code>time</code> library to track my scraper's basic speed performance. A good next addition would be using more thorough code <a href="https://www.jetbrains.com/help/pycharm/profiler.html">performance profilers</a>.</li>
 </ul>
 </li>
-<li>
-<p>As mentioned above, some websites are easier to parse than others. It is useful to keep in mind that malformed DOM trees and otherwise 'broken' HTML structures may present a barrier to consistent parsing across subpages of the same URL domain. Higher-level libraries like bs4 will better accommodate the parsing of broken HTML or XML.</p>
-</li>
+<li>As mentioned above, some websites are easier to parse than others. It is useful to keep in mind that malformed DOM trees and otherwise 'broken' HTML structures may present a barrier to consistent parsing across subpages of the same URL domain. Higher-level libraries like bs4 will better accommodate the parsing of broken HTML or XML.</li>
 </ul>
 <h3>Libraries</h3>
 <ul>

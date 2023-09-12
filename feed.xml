@@ -4,195 +4,11 @@
   <subtitle>A research collective that applies computational criticism, in all its forms, to the study of literature.</subtitle>
 <link href="https://litlab.stanford.edu/" rel="self"/>
   <link href="https://litlab.stanford.edu/"/>
-  <updated>2023-08-16T00:00:00Z</updated>
+  <updated>2023-09-03T00:00:00Z</updated>
   <id>https://litlab.stanford.edu/</id>
   <author>
     <name>Stanford Literary Lab</name>
   </author>
-  
-  <entry>
-    <title>Webscraping in the Digital Humanities: An Introduction</title>
-    <link href="https://litlab.stanford.edu/techne/web-scraping/"/>
-    <updated>1990-09-03T00:00:00Z</updated>
-    <id>https://litlab.stanford.edu/techne/web-scraping/</id>
-    <content type="html">&lt;h2&gt;Background&lt;/h2&gt;
-&lt;p&gt;Hi Lit Lab! 👋 This is Riley, a CESTA intern from summer 2020. In the process of fumbling around recently with some of my old coding projects, I came across a Python webscraper that I wrote for the Lit Lab during my internship. Wanting to brush up on my skills — and improve some of the truly horrible code I wrote that summer — I spent a week researching webscraping while simplifying and improving my code.&lt;/p&gt;
-&lt;p&gt;The scraper in question, which takes data from roughly 20,000 URLs on &lt;a href=&quot;https://www.shmoop.com/study-guides/literature&quot;&gt;Shmoop&lt;/a&gt;, previously ran with multiple crashes over 6-8 hours to complete its data collection and parsing. It now runs in around 10 minutes with no crashes on my Macbook Air. What I learned about webscraping from this project is the focus of this article. While I am still a beginner, I hope to prove useful in some way to those similarly interested in the application of webscraping to projects in the digital humanities.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2&gt;The Web as Data&lt;/h2&gt;
-&lt;p&gt;To leverage the internet as a data resource in your research project — to use it as an almost infinitely vast collection of online archives, digital library systems, independent articles and photographs, and other results gleaned from curated Google searches — is to recognize that the web is simply a very large set of loosely interconnected, data-rich text files from which information can be mined.&lt;/p&gt;
-&lt;p&gt;With this perspective, curating and culling the information you need from the web-as-database can be reframed as a matter of efficiently searching and sorting through large numbers of data-rich text files. What kinds of text files are these? Because &lt;a href=&quot;https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/&quot;&gt;a common way to conceptualize webpage code&lt;/a&gt; involves separating it into structured information (HTML), style (CSS), and function (Javascript), the process of searching and sorting for information on the web will usually only involve the HTML. (Consider that hitting &lt;code&gt;Ctrl+S&lt;/code&gt; in your browser will download webpage content to your computer as a .html or .mhtml file.) This search and sort process can be automated by writing your own code, which is called webscraping.&lt;/p&gt;
-&lt;h3&gt;Purpose of Scraping&lt;/h3&gt;
-&lt;p&gt;Webscraping is the process of taking data from the web, usually in large quantities. Scraper code will set up a connection with the server (aka the website&#39;s API) and request data about one — or more likely, many — webpages, which it can then parse for particular information the researcher needs.&lt;/p&gt;
-&lt;p&gt;One does not have to look far to see the relevance and power webscraping can provide to digital humanities projects across the board: want to search through the New Yorker&#39;s digital archive for all articles on Philip Roth? Download all of Trump&#39;s 2017 tweets posted between 2:00 and 7:00am for sentiment analysis? Create a list of all the characters in all the novels summarized on Sparknotes? Webscraping offers the digital humanities researcher a way to automate and customize their data collection process, with large quantities of information (&#39;big data&#39;) on the web as their resource.&lt;/p&gt;
-&lt;h3&gt;Scraping Overview&lt;/h3&gt;
-&lt;p&gt;The basic process of building a webscraper:&lt;/p&gt;
-&lt;h4&gt;1. Establish a connection with the website server and request to download the page HTML&lt;/h4&gt;
-&lt;p&gt;In order to scrape resources, you must access them first. To do this, you will almost definitely be using your computer to send an &lt;a href=&quot;https://www.w3schools.com/tags/ref_httpmethods.asp&quot;&gt;HTTP GET request&lt;/a&gt; to the server of the website you want to scrape. As its name implies, this will request to &lt;code&gt;get&lt;/code&gt; (download) the HTML of a webpage. In Python, a common webscraping language and the one I use throughout this article, perhaps the simplest way to make &lt;code&gt;GET&lt;/code&gt; requests is to use the &lt;code&gt;requests&lt;/code&gt; library.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import requests
-
-request = requests.get(&amp;quot;www.example.com&amp;quot;)
-print(request.text)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;With the requests library, the request comes back as a &lt;em&gt;response&lt;/em&gt;, which we generally want to view as text—the html content of the website as it was returned to us. (In actual use, you&#39;d process this text, not print it out!)&lt;/p&gt;
-&lt;p&gt;Making a request in this way is practically speaking, very similar to viewing the page manually in a web browser (which, behind the scenes, is making very similar requests to the server), with the dual advantages that you have more direct access to the raw html to process into data, and the speed at which you can make requests (which is limited chiefly by the speed at which the server can respond to each request).&lt;/p&gt;
-&lt;p&gt;One important caveat: websites are designed to support various amounts of web traffic, from a few simultaneous users (your personal webpage) to hundreds of thousands or even millions (google). With a few lines of code, however, it&#39;s possible to submit &lt;em&gt;lots&lt;/em&gt; of requests very, very quickly, which is essentially a very primative &lt;a href=&quot;https://en.wikipedia.org/wiki/Denial-of-service_attack&quot;&gt;DoS attack&lt;/a&gt;, where you swamp a server with requests, bogging down legitimate users&#39; requests with thousands (or millions) of spurious ones. That&#39;s not as bad as it sounds—any remotely reasonable web server in 2023 will detect all of your requests as coming from the same place, and simply block them all, but it&#39;s still a drain on resources and, at a minimum, impolite (for them) and ineffective (for you, since you don&#39;t get the web content you wanted). More on managing this below.&lt;/p&gt;
-&lt;h4&gt;2. Use a parsing library to systematically extract information from each page&lt;/h4&gt;
-&lt;p&gt;Parsing is the heart of webscraping. It involves systematically going through a webpage&#39;s HTML code structure in order to extract needed information. The essence of parsing comes down to effective querying — it is necessary to understand how HTML files are structured in order to identify unique features within that structure and isolate needed information accordingly. The power of webscraping as an automated process can be seen when parsing is executed algorithmically across many webpages, usually with similar HTML structures and within the same domain. For example, wikipedia pages for novels often have an infobox with some summary information about the novel (see, for example, &lt;a href=&quot;https://en.wikipedia.org/wiki/Beloved_(novel)&quot;&gt;Beloved&lt;/a&gt;), which contains an html table, with rows that look like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;tr&amp;gt;&amp;lt;th scope=&amp;quot;row&amp;quot; class=&amp;quot;infobox-label&amp;quot;&amp;gt;Language&amp;lt;/th&amp;gt;&amp;lt;td class=&amp;quot;infobox-data&amp;quot;&amp;gt;English&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;By looking for similar patterns of text across the html for a list of wikipedia pages, it&#39;s not too difficult to start to build an automated collection of metadata information for a corpus of novel (at least, where that information is on wikipedia).&lt;/p&gt;
-&lt;h4&gt;3. Write the information to an output file, like a .csv&lt;/h4&gt;
-&lt;p&gt;The final step of scraping is storing your data for analysis. This is often the simplest step, because data should already be stored in local variables throughout parsing. Two common output file types for exporting data are &lt;a href=&quot;https://www.programiz.com/javascript/json&quot;&gt;.json&lt;/a&gt; and &lt;a href=&quot;https://www.programiz.com/python-programming/csv&quot;&gt;.csv&lt;/a&gt;, as these formats are easy to manipulate, transmit, and access. In determining how to output your data, it is important to consider how subsequent steps in the processing pipeline will impact which file type or use case is most appropriate.
- &lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2&gt;Ethical and legal matters&lt;/h2&gt;
-&lt;p&gt;The ethical and legal ramifications of webscraping are complex, but beyond all the obvious ethical dimensions to harvesting data from the internet, there are a few specific issues to be aware of (but obviously, we aren&#39;t lawyers and this isn&#39;t legal advice, so do your own research here):&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Copyright applies to scraped data, which generally prohbitis the dissemination of webpages or large parts thereof (as opposed to &lt;em&gt;data&lt;/em&gt; derived from those pages, which is factual and thereofore not usually protected by copyright)&lt;/li&gt;
-&lt;li&gt;Personal data is protected (very broadly) by the GDPR in the EU, and, unviersally, by some basic ethical principles. Be sensible&lt;/li&gt;
-&lt;li&gt;Website terms of service can prohibit web-scraping; the extent to which this is enforceable is not entirely clear to us non-lawyers but seems to vary with the specifics. Talk to a lawyer, or find other ways to the same data&lt;/li&gt;
-&lt;li&gt;Actively circumventing measures taken to prevent access to data (e.g. passwords, account logins, etc) generally takes you out of the realm of publically accessible information, and typically isn&#39;t allowed&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;Technical Process&lt;/h2&gt;
-&lt;p&gt;The remainder of this post presents a more technical guide to the 3-step scraping process outlined above. All code snippets are in Python, and the working scraper code on which these snippets are based can be found &lt;a href=&quot;https://github.com/rileyseow/personhood-litguide-scraper&quot;&gt;here&lt;/a&gt;. It may be helpful to refer to the scraper&#39;s full code for more thorough inline commenting on what is described below.&lt;/p&gt;
-&lt;h4&gt;Step 1: Download page HTMLs&lt;/h4&gt;
-&lt;p&gt;To establish a connection with the relevant server, set up a TCP connector and start a client-server session with it. (The client refers to the entity requesting information from the server: your browser.)&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;my_conn = aiohttp.TCPConnector(limit=20, ssl=False)
-my_timeout = aiohttp.ClientTimeout(total=900)
-
-async with aiohttp.ClientSession(connector=my_conn, timeout=my_timeout) as session:
-    # do something
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Using your client-server session, you should request to download the HTML of each URL you need to parse. For example, you may need to parse
-https://www.shmoop.com/study-guides/literature/index/?p=1,
-https://www.shmoop.com/study-guides/literature/index/?p=2,
-https://www.shmoop.com/study-guides/literature/index/?p=3,
-...and so on and so forth. In the code below, all needed URLs are passed in as the parameter &lt;code&gt;URLList&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;async def downloadAll(URLList):
-    my_conn = aiohttp.TCPConnector(limit=20, ssl=False)
-    my_timeout = aiohttp.ClientTimeout(total=900)
-    
-    async with aiohttp.ClientSession(connector=my_conn, timeout=my_timeout) as session:
-        # tasks = [ for each url in URLList: make HTML download request ]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you need to make a large number of &lt;code&gt;GET&lt;/code&gt; requests, your major bottleneck will be waiting for server responses, in which case it will greatly improve performance to asynchronously request HTML downloads from the server. This prevents requests that are going to and coming back from the server from interfering with each others&#39; wait times.&lt;/p&gt;
-&lt;p&gt;You should, however, balance this against a reasonable expectation for the server&#39;s load (are you making 50 requests or 5000? does this site see traffic in the 10s of requests per hour, or the tens-of-thousands?), and you should be aware that you might run into deliberate &lt;em&gt;rate-limiting&lt;/em&gt; from the server, in which case you&#39;ll need to slow your requests down to avoid having your requests denied.&lt;/p&gt;
-&lt;p&gt;To make asynchronous requests in Python, I use libraries &lt;a href=&quot;https://us-pycon-2019-tutorial.readthedocs.io/asyncio_intro.html&quot;&gt;asyncio&lt;/a&gt; and &lt;a href=&quot;https://us-pycon-2019-tutorial.readthedocs.io/aiohttp_intro.html&quot;&gt;aiohttp&lt;/a&gt; and the according async-await syntax.&lt;/p&gt;
-&lt;p&gt;In particular, I use asyncio&#39;s &lt;code&gt;ensure_future&lt;/code&gt; method to asynchronously request the HTML pages of all needed URLs. Each download request is handled through a helper method &lt;code&gt;downloadLink()&lt;/code&gt;. Once all requests have been made to the server, I return the results with asyncio&#39;s &lt;code&gt;gather&lt;/code&gt;. If all has gone well, the return value will be a Python list of HTML page strings that are ready to be parsed.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import asyncio
-import aiohttp
-
-async def downloadLink(session, url):
-    async with session.get(url) as resp:
-        html = await resp.text()
-        return html
-
-async def downloadAll(URLList):
-    my_conn = aiohttp.TCPConnector(limit=20, ssl=False)
-    my_timeout = aiohttp.ClientTimeout(total=900)
-
-    async with aiohttp.ClientSession(connector=my_conn, timeout=my_timeout) as session:
-        tasks = [asyncio.ensure_future(downloadLink(session, url)) for url in URLList]
-        return await asyncio.gather(*tasks, return_exceptions=True)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;h4&gt;Step 2: Parse page HTMLs&lt;/h4&gt;
-&lt;p&gt;A parsing library allows you to systematically search through a page&#39;s HTML &lt;a href=&quot;https://www.w3schools.com/whatis/whatis_htmldom.asp&quot;&gt;DOM tree&lt;/a&gt; for needed information. For example, suppose you want to create a list of all novel titles listed on https://www.shmoop.com/study-guides/literature/index/?p=1.&lt;/p&gt;
-&lt;p&gt;To know what to parse for, inspect the DOM tree to identify a unique attribute of the element(s) you want to select. For the example above, try pulling up the page and opening your browser&#39;s Dev Tools (right click on the first novel title and hit &#39;Inspect&#39;). Note that all novel titles are represented in the page&#39;s HTML DOM tree as divs with class &#39;item-info&#39; (&lt;code&gt;&amp;lt;div class=&amp;quot;item-info&amp;quot;&amp;gt; A Doll&#39;s House &amp;lt;/div&amp;gt;&lt;/code&gt;). Also note that no other elements on the page have this class.&lt;/p&gt;
-&lt;p&gt;Parsing now becomes a matter of constructing a query to select relevant elements of the DOM tree. (For our running example, the query should take advantage of the elements&#39; unique class name.) Probably the most beginner-friendly parsing library to use is Python&#39;s Beautiful Soup or bs4 (documentation &lt;a href=&quot;https://www.crummy.com/software/BeautifulSoup/bs4/doc/&quot;&gt;here&lt;/a&gt;). You can use bs4 by creating a BeautifulSoup object out of a downloaded HTML page — using SoupStrainer to narrow down which elements of the DOM tree to parse, if desired — and calling &lt;code&gt;.find&lt;/code&gt; or &lt;code&gt;.find_all&lt;/code&gt; on the BeautifulSoup object with your query.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from bs4 import BeautifulSoup, SoupStrainer
-
-def scrapeTitles(pageHTML):
-    soup = BeautifulSoup(pageHTML, &amp;quot;lxml&amp;quot;, parse_only=SoupStrainer([&amp;quot;div&amp;quot;]))
-    titles = soup.find_all(&amp;quot;div&amp;quot;, class_=&amp;quot;item-info&amp;quot;).text.strip()
-    
-    # Store parsed information in variable fDataToWrite
-    id = 0
-    for title in titles:
-        fDataToWrite.append([id++, title])
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As you might notice, the second parameter in instancing a BeautifulSoup object is &lt;code&gt;lxml&lt;/code&gt;, a library doing the actual parsing (documentation &lt;a href=&quot;https://lxml.de/&quot;&gt;here&lt;/a&gt;). In other words, the way we instance our BeautifulSoup object sets it up to parse using lxml under the hood.&lt;/p&gt;
-&lt;p&gt;By adding other checks and capabilities, bs4 is more useful than lxml for parsing poorly structured or &#39;broken&#39; HTML pages. But if you&#39;re scraping well-formed webpages and speed is a high priority — which it often is with scraping projects — it may be advantageous to parse with lxml directly.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import lxml.html
-
-def scrapeTitles(pageHTML):
-    root = lxml.html.fromstring(pageHTML)
-    titles = root.xpath(&amp;quot;//div[@class=&#39;item-info&#39;]/text()&amp;quot;)
-    
-    id = 0
-    for title in titles:
-        fDataToWrite.append([id++, title.strip()])
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The crux of parsing with lxml is its &lt;code&gt;.xpath&lt;/code&gt; method. It can be helpful to think of &lt;code&gt;.xpath&lt;/code&gt; as another version of bs4&#39;s &lt;code&gt;.find_all&lt;/code&gt;. For more information on structuring &lt;code&gt;.xpath&lt;/code&gt; calls in your parsing code, try the relevant &lt;a href=&quot;https://lxml.de/lxmlhtml.html&quot;&gt;documentation page&lt;/a&gt;. Alternatively, lxml also supports parsing using &lt;a href=&quot;https://lxml.de/cssselect.html&quot;&gt;CSS selectors&lt;/a&gt;.
- &lt;/p&gt;
-&lt;h4&gt;Step 3: Write parsed information to output file&lt;/h4&gt;
-&lt;p&gt;After parsing all needed information and saving it in one or more variables, you should store your data permamently in some sort of output. The type of output you choose depends on how you intend to process and use the data after it has been scraped. My project&#39;s output files were .csv tables, for which Python uses the following syntax:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import csv
-
-# Before writing, open a CSV file with a header to write to
-f = open(&amp;quot;shmoop_novel_data.csv&amp;quot;, &amp;quot;w&amp;quot;)
-fWriter = csv.writer(f)
-fHeader = [&amp;quot;Novel ID&amp;quot;, &amp;quot;Title&amp;quot;]
-fWriter.writerow(fHeader)
-
-# Throughout parsing, save relevant information to list variable (fDataToWrite)
-# See previous code snippets
-    
-# Write out all rows of novel data to shmoop_novel_data.csv
-fWriter.writerows(fDataToWrite)
-
-# After writing, close CSV file
-f.close()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr /&gt;
-&lt;h2&gt;Optimizations: Tips, Tricks, and Libraries&lt;/h2&gt;
-&lt;h3&gt;Servers and Connections&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Sending too many requests to download page HTMLs from a server may kick you off of a site for resembling bot behavior or a DDoS attack. A simple way I&#39;ve managed this is by toggling the TCP connection&#39;s &lt;code&gt;limit&lt;/code&gt; parameter to keep the number of simultaneous requests to a reasonable level (10-30 seemed to provide a good balance for my project).&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt; my_conn = aiohttp.TCPConnector(limit=20, ssl=False)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Realtedly, you&#39;ll find that some sites, like the New York Times, maintain a specific web API for programmatic access, which you should generally use to access their data, both as a courtesy to them, and because they&#39;ll often return data to you in a much more direct way that the html you&#39;ll get from more direct scraping)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;If your scraper needs more than the default 300 sec (5 min) to run, make sure to increase your TCP &lt;code&gt;ClientTimeout&lt;/code&gt; to avoid a timeout error. Here it is 900 sec (15 mins):&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;my_timeout = aiohttp.ClientTimeout(total=900)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Function&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Consider your scraper&#39;s file structure. I found it helpful to have separate files for main, config (global variables storing parsed information), download, scrape, and two output .csv&#39;s.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;In my main file, I imported the &lt;code&gt;time&lt;/code&gt; library to track my scraper&#39;s basic speed performance. A good next addition would be using more thorough code &lt;a href=&quot;https://www.jetbrains.com/help/pycharm/profiler.html&quot;&gt;performance profilers&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;As mentioned above, some websites are easier to parse than others. It is useful to keep in mind that malformed DOM trees and otherwise &#39;broken&#39; HTML structures may present a barrier to consistent parsing across subpages of the same URL domain. Higher-level libraries like bs4 will better accommodate the parsing of broken HTML or XML.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Libraries&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;I have not parsed in libraries other than bs4 and lxml, although there are many. I found this &lt;a href=&quot;https://scrapeops.io/python-web-scraping-playbook/best-python-html-parsing-libraries/&quot;&gt;article&lt;/a&gt; helpful in comparing some potential alternatives.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Character encoding detection is the process of figuring out how which schema a webpage uses to store characters as bits (e.g. ASCII, UNICODE, etc.). It sometimes delays parsing by adding overhead time to your code. To speed up character encoding detection, some suggest importing libraries like &lt;code&gt;cchardet&lt;/code&gt; or &lt;code&gt;charset-normalizer&lt;/code&gt; in your scraper code (documentation &lt;a href=&quot;https://pypi.org/project/cchardet/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://pypi.org/project/charset-normalizer/&quot;&gt;here&lt;/a&gt;).&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;I did not find a meaningful difference in speed after importing these libraries, but this may have been due to not checking with a profiler. Here is one &lt;a href=&quot;https://thehftguy.com/2020/07/28/making-beautifulsoup-parsing-10-times-faster/&quot;&gt;article&lt;/a&gt; on speeding up bs4 performance that advocates for importing &lt;code&gt;cchardet&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Sites to Try&lt;/h3&gt;
-&lt;p&gt;For sites where you can easily practice your scraping skills, this &lt;a href=&quot;https://proxyway.com/guides/best-websites-to-practice-your-web-scraping-skills&quot;&gt;article&lt;/a&gt; may be helpful.
- &lt;/p&gt;
-</content>
-  </entry>
   
   <entry>
     <title>Virtual Readers</title>
@@ -228,6 +44,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Humanities Without Humanists</title>
     <link href="https://litlab.stanford.edu/humanities-without-humanists/"/>
@@ -247,6 +64,7 @@ f.close()
 &lt;p&gt;&lt;a name=&quot;ftn3&quot;&gt;&lt;sup&gt;[3]&lt;/sup&gt;&lt;/a&gt; As David McClure pointed out to me in conversation, there is another explanation for this phenomenon: it could be that these non-narrative texts &lt;em&gt;do&lt;/em&gt; in fact have emotional arcs that the tool is picking up accurately, and that the authors have discovered something about the affective structure of nonfiction. This is certainly possible, but I think one could only make the argument if the authors had derived their six “emotional arcs” from a corpus that they knew to contain only narratives; in that case, finding evidence of narrative structures in a non-narrative text would suggest that the text &lt;em&gt;did&lt;/em&gt; in fact have some narrative component. Because the non-narratives were baked into the corpus from the beginning, though, their arcs presumably influenced the outcome of the SVD analysis, making it hard to argue that these arcs reflect anything distinctive about stories per se.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Counting words in HathiTrust with Python and MPI</title>
@@ -295,6 +113,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Working in the Lab, Part 1</title>
     <link href="https://litlab.stanford.edu/working-in-the-lab-part-1/"/>
@@ -309,6 +128,7 @@ f.close()
 &lt;p&gt;&lt;em&gt;Ena Alvarado is a Stanford junior from Caracas, Venezuela studying English. She may love reading and writing a little too much.&lt;/em&gt;&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Working in the Lab, Part 2</title>
@@ -325,6 +145,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Working in the Lab, Part 3</title>
     <link href="https://litlab.stanford.edu/working-in-the-lab-part-3/"/>
@@ -336,6 +157,7 @@ f.close()
 &lt;p&gt;&lt;em&gt;Asha Isaacs is a junior in the psychology department at Stanford, and is fascinated by all forms of humanistic inquiry.&lt;/em&gt;&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>How many novels have been published in English? (An Attempt)</title>
@@ -400,6 +222,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Distributions of words across narrative time in 27,266 novels</title>
     <link href="https://litlab.stanford.edu/distributions-of-words-27k-novels/"/>
@@ -454,6 +277,7 @@ f.close()
 &lt;p&gt;&lt;em&gt;The feature extraction code for this project can be found &lt;a href=&quot;https://github.com/davidmcclure/literary-interior/tree/shuffle&quot;&gt;here&lt;/a&gt;, and the analysis code is &lt;a href=&quot;https://github.com/davidmcclure/lint-analysis&quot;&gt;here&lt;/a&gt;. Thanks Mark Algee-Hewitt, Franco Moretti, Matt Jockers, Scott Enderle, Dan Jurafsky, Christof Schöch, and Ryan Heuser for helping me think through this project at various stages. Any mistakes are mine!&lt;/em&gt;&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>A hierarchical cluster of words across narrative time</title>
@@ -539,6 +363,7 @@ f.close()
 &lt;p&gt;&lt;a href=&quot;https://litlab.stanford.edu/assets/images/techne/and-or.png&quot;&gt;&lt;img src=&quot;https://litlab.stanford.edu/assets/images/techne/and-or.png&quot; width=&quot;800px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>The (weird) distributions of function words across novels</title>
@@ -642,6 +467,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on the New Yorker</title>
     <link href="https://litlab.stanford.edu/news/2018-02-05-presentation-on-the-new-yorker/"/>
@@ -651,6 +477,7 @@ f.close()
 &lt;p&gt;This was somewhat different from ordinary Lab meetings in that we developed multiple research questions that could benefit from the New Yorker corpus, and discussed how we want to tag and sort the corpus to facilitate answering those questions.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation on “Typicality”</title>
@@ -662,6 +489,7 @@ f.close()
 &lt;p&gt;The problem of typicality poses a question that is at once deeply historical (what is the typical novel of, for example, the 1890s?) and simultaneously unmoored from history (what is the most novel-like novel?) Methods of quantitative analysis can help us get new purchase on these questions: for the first time, we can measure averages, medians, and other statistical expressions of typicality in many different ways across large datasets. But what are the benefits and consequences of thinking about the literary field in this way? How might we measure literary averages, and, assuming that we can find a few, what light would the typical novel shed on our understanding of the literary novel? In this new project, we begin to explore the intersections of quantitative and qualitative typicality as a methodological intervention into literary criticism.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>The Space of Poetic Meter</title>
@@ -729,6 +557,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “Operationalizing the Change. Literary Transition in Poland Viewed Through Bibliographical Data (1989-2002)”</title>
     <link href="https://litlab.stanford.edu/news/2018-03-12-presentation-on-operationalizing-the-change-literary-transition-in-poland-viewed-through-bibliographical-data-1989-2002/"/>
@@ -742,6 +571,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “Reading the Norton Anthologies of American Literature”</title>
     <link href="https://litlab.stanford.edu/news/2018-05-06-presentation-on-reading-the-norton-anthologies-of-american-literature/"/>
@@ -752,6 +582,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “Identity”</title>
     <link href="https://litlab.stanford.edu/news/2018-05-30-presentation-on-identity/"/>
@@ -761,6 +592,7 @@ f.close()
 &lt;p&gt;“Representations of Race and Identity in American Fiction” explores the changing discourse of identity in the American Novel from the late eighteenth to the early nineteenth century. As the project moves toward publication, we wanted to share our latest work with the lab, including new visualizations of the discourse of the novel and a new set of findings on the “stickiness” of identity labels that have shifted the goals and outcomes of the research. We are particularly eager to think through the implication of these findings with the lab before we submit the piece for publication.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation on “Microgenres”</title>
@@ -773,6 +605,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “Comp Titles and the Contemporary Marketplace”</title>
     <link href="https://litlab.stanford.edu/news/2018-10-10-presentation-on-comp-titles-and-the-contemporary-marketplace/"/>
@@ -781,6 +614,7 @@ f.close()
     <content type="html">&lt;p&gt;On October 11th, 2018, Laura McGrath p her latest work on her Comp Titles and the Contemporary Marketplace project.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Popularity/Prestige: A New Canon</title>
@@ -830,6 +664,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “Novel Worldbuilding”</title>
     <link href="https://litlab.stanford.edu/news/2018-10-29-presentation-on-novel-worldbuilding/"/>
@@ -839,6 +674,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “Typicality”</title>
     <link href="https://litlab.stanford.edu/news/2018-12-04-presentation-on-typicality/"/>
@@ -847,6 +683,7 @@ f.close()
     <content type="html">&lt;p&gt;The “typical” novel often serves as a point of comparison in the process of literary critique, particularly in discussions of how the canonical departs from the majority of literary fiction. But what is the typical novel? While traditional literary criticism confuses typicality with exemplarity, this project investigates the quantitatively typical, or “average” novel. What novels lie closest to the semantic, topical or lexical mean? Can we measure an author’s most typical work, or even passage? And how do the pressures of novelty and influence drive what is considered “typical” in American literature? Algee-Hewitt and Fredner are excited to share their latest round of results with the lab and eager to have your feedback as they continue to explore literary typicality.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation on “Global Digital Humanities: Text Mining Multilingual Literary Corpora”</title>
@@ -859,6 +696,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “Fanfiction: Generic Genesis and Evolution”</title>
     <link href="https://litlab.stanford.edu/news/2019-02-13-presentation-on-fanfiction-generic-genesis-and-evolution/"/>
@@ -868,6 +706,7 @@ f.close()
 &lt;p&gt;Fan fiction has become a massively productive region of the literary landscape, generating thousands of new readerly and textual communities that share fictional universes and critical feedback. We examine one subset of this scene—novel-length Harry Potter fan fiction from fanfiction.net—with respect to genre and character tags to determine how the plots and characters that preoccupy the fandom differ from those that receive the most attention in the 7 canonical books. Using some of the most common tropes, characterizations and plot devices utilized in fanfiction, we offer a method for categorizing and tracking the ways in which fanfiction authors (impressive close readers in their own right) interact with and deviate from the Harry Potter canon and each other.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation on “WhatEvery1Says: Interpreting Student Responses to the Humanities”</title>
@@ -879,6 +718,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “Wild Animal Stories: Modeling Anthropomorphism in Animal Writing, 1870-1930”</title>
     <link href="https://litlab.stanford.edu/news/2019-03-13-presentation-on-wild-animal-stories-modeling-anthropomorphism-in-animal-writing-1870-1930/"/>
@@ -888,6 +728,7 @@ f.close()
 &lt;p&gt;Is an animal a person? The question is far from idle; it is fraught with urgent ethical and legal consequences for animal welfare, and it shapes scientific norms for the study of animal behavior. It also remains a constant theme in Western philosophy from Rene Descartes through present-day Critical Animal Studies. However, lawyers, philosophers, and ethologists are not the only deciders in this question: cultural representations of animals also mediate their relation to personhood. Fiction, for instance, excels in the representation of human individuality, interiority, and action; complex, “round” characters of course populate the long history of prose fiction. How, then, does fiction engage with the personhood of animals? In fiction, when is an animal a character? What do animals do in the pages of fiction? Do they make decisions, have feelings, express interiority? Do animals function more similarly to human characters, or to things, objects, and machines? In this presentation, we will begin to approach these questions with computational methods. In a variety of corpora—from popular natural history to scientific writing about animal behavior to animal-driven fictions historically accused of anthropomorphism—we compare the semantic and syntactic footprints left behind by animals and humans. We discover that, from a computational standpoint, animals in fiction are indeed recognizable as characters, albeit characters more likely to register intentionality through physical movement over speech and to display a mental paradigm colored by instinct and associative learning. Natural history writing, on the other hand, narrates animals in ways that seem surprisingly human-like when compared to animal representations in fiction more broadly. Ultimately, our results suggest the many dimensions of anthropomorphism and the variety of scales at which it operates.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Literary Lab talks at DH 2019</title>
@@ -903,6 +744,7 @@ f.close()
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “Voice”</title>
     <link href="https://litlab.stanford.edu/news/2019-04-24-presentation-on-voice/"/>
@@ -912,6 +754,7 @@ f.close()
 &lt;p&gt;What is “voice” in literary criticism? What does it mean for an author to have a voice? Who has a voice, how do they find it, and once found, where does it exist? “Voice” is a central metaphorical concept in the post45 literary field. As Mark McGurl has shown, the idea of the writer’s voice has been promoted and perpetuated by the creative writing program. But “voice” (or lack thereof) also governs publishing acquisitions (McGrath), the AP English classroom (Nomura), and book review discourse (Internet). Despite the concept’s centrality, it has yet to receive any rigorous treatment; it remains undefined, imprecise—but we know it when we see it. This talk takes the imprecision of “voice” as it’s starting point, attempting to develop a rigorous and capacious definition of the concept based on its use throughout a number of reading communities in the 20th century, drawing on the internet’s largest collection of reader-response criticism: GoodReads.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation on “Contemporaneity”</title>
@@ -924,6 +767,7 @@ place a novel in the amorphous present?&lt;/p&gt;
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentations on “Star Texts” and “Celebrity”</title>
     <link href="https://litlab.stanford.edu/news/2019-05-21-presentations-on-star-texts-and-celebrity/"/>
@@ -935,6 +779,7 @@ place a novel in the amorphous present?&lt;/p&gt;
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “Anticorruption”</title>
     <link href="https://litlab.stanford.edu/news/2019-06-05-presentation-on-anticorruption/"/>
@@ -944,6 +789,7 @@ place a novel in the amorphous present?&lt;/p&gt;
 &lt;p&gt;The OECD Working Group on Bribery (WGB) is one of the key institutions for addressing corruption in trade between wealthy nations. Yet its disciplinary powers are quite limited, consisting mainly of “naming and shaming” via harshly worded reports and press releases. In this project, a collaboration between the Literary Lab and Colombian legal scholars Laura Galindo-Romero and Mariana Rozo Paz, we explore the publications of the OECD through sentiment, distinctive words, and coded sections of “harsh” language, exploring the effectiveness and the biases that underlie the reports and press releases.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>&#39;The Hidden Dictionary&#39; at DH 2018</title>
@@ -959,6 +805,7 @@ place a novel in the amorphous present?&lt;/p&gt;
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “The Afterlife of Aesthetics”</title>
     <link href="https://litlab.stanford.edu/news/2019-10-23-presentation-on-the-afterlife-of-aesthetics/"/>
@@ -968,6 +815,7 @@ place a novel in the amorphous present?&lt;/p&gt;
 &lt;p&gt;The eighteenth-century gave both critics and authors a new vocabulary through which to both express and study aesthetic experience. Yet while we have many in-depth studies on the emergence of concepts like the sublime, our narratives do not take into account the multiple and overlapping ways that these ideas emerged in the seventeenth and eighteenth-centuries and, more importantly, what happened to them in the nineteenth century. In this project, which lies at the heart of my forthcoming book, I use a combination of quantitative and critical methods on over 400,000 texts to trace a new history of the sublime across the two centuries between 1660 and 1860. The sublime, I argue, can best be defined as a pattern of language, a linked network of terms that cohere across the two centuries, and whose patterns persist in the literary and critical writing of the Romantic period and beyond.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Finding needles in 34 million haystacks</title>
@@ -995,6 +843,7 @@ place a novel in the amorphous present?&lt;/p&gt;
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on “Spoken Poetry for the Public”</title>
     <link href="https://litlab.stanford.edu/news/2019-11-11-presentation-on-spoken-poetry-for-the-public/"/>
@@ -1004,6 +853,7 @@ place a novel in the amorphous present?&lt;/p&gt;
 &lt;p&gt;Can a digital humanities platform -- which focuses primarily on the sounding of poetry and the poetics of sound -- be as appealing to scholars as the general public? This talk will discuss an emerging online social community dedicated to creating and sharing original audio recordings of poetry as well as audio essays. Produced collaboratively by literary scholars, computer scientists, and graphic design artists, the platform of spoken verse is user-generated and brings together original audio recordings of poems. Aiming to transform and diversify access to the world of poetry for artists, scholars, instructors, students, and poetry enthusiasts, the project promotes new &amp;quot;readings&amp;quot; of poems through an unconventional &amp;quot;close listening&amp;quot; mode and an innovative method for &amp;quot;anthologizing&amp;quot; texts across cultures, languages, traditions, and time.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation on “Distant reading of War and Peace - can we find something, that we did not know?”</title>
@@ -1015,6 +865,7 @@ place a novel in the amorphous present?&lt;/p&gt;
 In my talk I&#39;ll introduce the concept of complex layer analysis and I&#39;ll show how the combination of 5 different distant reading methods applied to one novel help to reveal rigid  structure of inner oppositions and bring some new insights about Tolstoy&#39;s art as device.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Two presentations on fanfic</title>
@@ -1030,6 +881,7 @@ In my talk I&#39;ll introduce the concept of complex layer analysis and I&#39;ll
 &lt;p&gt;The Harry Potter franchise is a global phenomenon, with books and films translated into hundreds of languages. While readers and viewers worldwide have the same point of departure, the fan fiction responses to that material diverge in ways that are shaped by shaped by language and culture (both national cultures and the community cultures of particular fanfic archives). In this talk, we will discuss how the affordances and conventions of three archives (Italian efpfanfic.net, Russian ficbook.net, and primarily-English fanfiction.net), and the languages and cultures of their writers, have contributed to differences ranging from rating and genre to warnings, characters, and pairings.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Lit Lab at MLA2020</title>
@@ -1098,6 +950,7 @@ In my talk I&#39;ll introduce the concept of complex layer analysis and I&#39;ll
 </content>
   </entry>
   
+  
   <entry>
     <title>Star Texts: A Case Study in Harper’s and Vogue</title>
     <link href="https://litlab.stanford.edu/star-texts/"/>
@@ -1142,6 +995,7 @@ In my talk I&#39;ll introduce the concept of complex layer analysis and I&#39;ll
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on &#39;Talking Like a Robot&#39;</title>
     <link href="https://litlab.stanford.edu/news/2020-02-13-presentation-on-talking-like-a-robot/"/>
@@ -1156,6 +1010,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on &#39;Translation&#39;</title>
     <link href="https://litlab.stanford.edu/news/2020-02-13-presentation-on-translation/"/>
@@ -1165,6 +1020,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;Discussions of translation often focus on the ineffable losses created by moving from one language to another. Yet translation may also leave (or even produce) a residue of the original language, traces of the fact that a text did not start its life in the language the reader encounters. In this project, we use a corpus of short stories translated into English from Russian, French, Spanish, Korean, Italian, Indonesian, German, and Portuguese to examine whether translation leaves a lexical or grammatical trace on its arrival in English and how these traces may vary by language. We hope to uncover the stylistic affordances of translation as such, gesture toward an atlas of the formal effects of translation into English, and potentially generate a few practical findings for translators.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation on &#39;Modeling the Spread of Information within Novels&#39;</title>
@@ -1176,6 +1032,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;Literature in many ways presents an ideal domain for modeling information propagation described in text, since it depicts a largely closed universe in which characters interact and speak to each other.  At the same time, it poses several wholly distinct challenges--in particular, both the length of literary texts and the subtleties involved in extracting information from fictional works pose difficulties for NLP systems optimized for other domains.  In this talk, I will describe our ongoing work in measuring information propagation in these implicit networks, and detail an NLP pipeline for discovering it, focusing in detail on new datasets we have created for tagging characters and their coreference in text.  This is joint work with Matt Sims, Olivia Lewke, Anya Mansoor, Sejal Popat and Sheng Shen.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Literary Lab talks at DH 2020</title>
@@ -1192,6 +1049,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on the short story project</title>
     <link href="https://litlab.stanford.edu/news/2020-04-22-presentation-on-the-short-story-project/"/>
@@ -1201,6 +1059,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;While the insights of the Digital Humanities have revealed new facets of literary form and history that are unavailable through traditional critical methods alone, in the field of literary text mining, the novel has long dominated analyses. As such, the new histories told by computational methods are centered on longer form prose fiction, eliding the ways in which short stories not only have their own evolutionary history throughout the nineteenth and twentieth centuries, but, equally as importantly, also differ formally from the novel. How does the language of the short story diverge from that of the novel? How do short stories construct plots differently from longer narratives? Are the events of short stories the same as those of novels, or do short stories have their own logic of events? Do characters appear and serve the same functions in short stories as they do in novels? And finally, how does the form of the short story change as it develops in the periodical publications of the early twentieth century? Length, it turns out, is not only an undertheorized aspect of literary fiction, but also does critical work in differentiating the kinds of stories that can be told in short fiction, as well as how those stories can be told. These questions have all been asked, to a greater or lesser extent, of other literary forms (novels, but also poetry and drama), but a computational approach, one that harnesses techniques from topic modeling to word vectors to named entity recognition, can aid us in better understanding the particular form and history of the short story.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation on the new Epidemics project</title>
@@ -1212,6 +1071,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on the Celebrity collaboration with the Smithsonian Museum of American History</title>
     <link href="https://litlab.stanford.edu/news/2020-05-17-presentation-on-the-celebrity-collaboration-with-the-smithsonian-museum-of-american-history/"/>
@@ -1222,6 +1082,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation from the Personhood project</title>
     <link href="https://litlab.stanford.edu/news/2020-06-01-presentation-from-the-personhood-project/"/>
@@ -1231,6 +1092,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;A number of recent Literary Lab projects have addressed issues of personification and depersonification, from an analysis of stories with animal protagonists to a survey of racialization in nineteenth-century fiction. This project intends to bring these investigations, along with others led by a wide range of field experts, together in the service of a common goal: mapping the space of literary techniques that construct textual personhood. We pursue this goal without imposing a false coherence onto our research questions or our results: indeed, we start from the assumption that personhood is a fuzzy category and that texts may signal personhood through diverse and sometimes contradictory means. Our methods and corpora are therefore eclectic, ranging from classification on the scale of tens of thousands of texts to collocate analysis on the scale of a few hundred. Key to the project, however, is a desire to let the results of these different scales of analysis inform each other, an approach we model in this presentation by spotlighting a number of corpora built on different principles to test different local hypotheses about personhood.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Typicality in the US Novel</title>
@@ -1256,6 +1118,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on the short story project: On the Affordances of Mere Length</title>
     <link href="https://litlab.stanford.edu/news/2020-11-05-presentation-on-the-short-story-project-on-the-affordances-of-mere-length/"/>
@@ -1265,6 +1128,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;The latest stage of our short story project expands our exploration of the formal and narratological differences between short stories and novels. We not only supplement our small, control, corpus with additional texts, but also we expand our analysis to a corpus of 10,000 short stories from Women’s Magazines of the late 19th and 20th centuries and compare it to an equal sized corpus of novels. In addition to vastly expanding our analysis of character appearances, and textual similarity across the texts, this new corpus has allowed us to reach new conclusions about the history of the short story in the twentieth century. We will also present new results on the formal differences between endings of novels and endings of short stories.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation from the social distancing project</title>
@@ -1276,6 +1140,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on &#39;Therapy Texts&#39;</title>
     <link href="https://litlab.stanford.edu/news/2021-01-25-presentation-on-therapy-texts/"/>
@@ -1285,6 +1150,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;This collaboration combines methods from computational text analysis, literary studies, and clinical psychology to examine the therapeutic encounter as manifest in a variety of texts. In particular, we compare a set of transcribed contemporary psychotherapy sessions to other forms of discourse including 20th- and 21st-century novels and memoirs, podcast interviews, and informal recorded conversation. We are interested in what distinguishes psychotherapeutic discourse from other types of discourse and how analytical protocols from literary studies and digital humanities can be productively applied to psychotherapeutic discourse issuing from a clinical setting. How is language used differently across these types of discourse? How similar are therapeutic encounters portrayed in fictional texts to actual therapy sessions? Which parts of 20th- and 21st-century literature look the most like therapy sessions? We approach these questions using a variety of computational tools, including topic models, most distinctive words, and sentiment analysis with a particular focus on parts of speech, words of temporal space, and features sets that allow us to model the language of the therapeutic encounter in literary spaces.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation from the Data-Sitters Club</title>
@@ -1297,6 +1163,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on Personhood</title>
     <link href="https://litlab.stanford.edu/news/2021-03-01-presentation-on-personhood/"/>
@@ -1306,6 +1173,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;The Personhood project is a collection of experiments that investigate the ways that the attributes of personhood are assigned to (or taken away from) literary characters. How are non-human characters (for example, animals or robots) represented so that readers encounter them as persons in the text? And how are human characters sometimes denied attributes of personhood? In this presentation, we will discuss our further extensions of the animacy model from the Wild Animal Stories project, in which we use a machine learning model trained on the grammar of humans and objects to classify entities that do not exactly belong to either category (e.g. organizations, occupations, or abstractions), and we will present our latest results from our analysis of online educational resources that offer their own complex topology of characters in a large literary corpus.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>“Whatever you do, don’t stare”: Modeling Representations of Otherness in the Star Wars Expanded Universe</title>
@@ -1317,6 +1185,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;In this project, we leverage computational textual analysis to explore the background discourses of the human and the other in the extensive universe of the Star Wars novels. Using a corpus of nearly 400 published Star Wars novels written between 1978 and 2020, we combine embedding spaces, machine learning models and close reading to explore how different authors mobilize similar representations of the human and the non-human (the humanoid, the alien, the robotic) in ways that replicate and influence the discourse of otherness in our wider culture.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>&#39;Whatever You Do, Don&#39;t Stare&#39;: Modeling Representation of Otherness in the Star Wars Expanded Universe&#39; at &#39;Realizing Resistance Episode II: Uncharted Galaxies&#39;</title>
@@ -1336,6 +1205,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation by Mark Algee-Hewitt on “Failed Concepts in the 18th Century”</title>
     <link href="https://litlab.stanford.edu/news/2021-05-11-presentation-by-mark-algee-hewitt-on-failed-concepts-in-the-18th-century/"/>
@@ -1345,6 +1215,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;The eighteenth century was a rich period for the emergence of concepts that we continue to grapple with today. Contemporary ideas such as “political justice,” or “human rights,” not only appeared in the conceptual framework of eighteenth-century political, social, or philosophical theory, but the terms themselves also became part of the cultural lexicon. These compound concepts, in which two pre-existing terms are brought together into a new configuration with a single, stable meaning, form a critical backbone of eighteenth-century thought. In this project, I have developed a new set of aligned vector models to trace the ways in which these kinds of concepts emerged within the eighteenth century. Working from the Eighteenth-Century Collections Online database, I explore how these models can trace the successful emergence and evolution of these concepts as their constituent terms collide in the discourse of the period. More importantly, however, my approach allows us to model failed concepts: points at which it appears that the same process should bring together disparate terms into a new compound concept, but in which a new concept fails to emerge, or the terms subsequently fall apart. These failed concepts not only allow us to better understand why certain combinations succeeded, but, also, for the first time, allow us to explore an unrealized history of concepts that could have happened, but didn’t.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation by Matt Warner on “Comparing Canons”</title>
@@ -1356,6 +1227,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation by Grant Parker on “Narratives of Enslavement”</title>
     <link href="https://litlab.stanford.edu/news/2021-10-20-presentation-by-grant-parker-on-narratives-of-enslavement/"/>
@@ -1366,6 +1238,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation by Mark Algee-Hewitt on “Poetic Epistemologies”</title>
     <link href="https://litlab.stanford.edu/news/2021-11-10-presentation-by-mark-algee-hewitt-on-poetic-epistemologies/"/>
@@ -1375,6 +1248,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;This project explores the relationship between information and knowledge production in the poetry of the long eighteenth-century and Romantic periods. Despite the highly figurative and allusive nature of eighteenth-century poetry, its proximity to the Enlightenment allows it to rely on catalogues of empirical objects and objects of immediate sensory experience. In contrast, Romantic poetry’s own self-theorization imposes a representational gap between the objects described and their use in producing poetic knowledge (e.g. Wordsworth’s “emotions recollected in tranquility”). This project, still in its early stages, explores this changing epistemology across the poetry of the long eighteenth century. How does poetry create meaning in both periods? How are objects represented between and across poems? How does the organization of objects in poems tell us about the way that knowledge is produced and communicated? Using the 55,000 poems from these periods from the Chadwyck-Healey poetry corpus, I test a series of new methods to investigate the semantic, syntactic, and poetic relationships between objects and concepts in poetry.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation on project updates</title>
@@ -1392,6 +1266,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation by Matt Warner on “Queer literature, theory and computational methods.”</title>
     <link href="https://litlab.stanford.edu/news/2022-01-19-presentation-by-matt-warner-on-queer-literature-theory-and-computational-methods/"/>
@@ -1401,6 +1276,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;The first two decades of the twenty first century saw both the emergence of computational literary studies, and an exponential increase in the publication of novels for and by queer and LGBTQIA+ readers. Historically, however, computational studies of literature have had relatively little to say about the queer, and it is easy to caricature the only field of literary criticism with an interest in binary classification as fundamentally at odds with queer studies. Instead, however, this talk explores some of the messy, imperfect results that emerge from turning traditional computational methods on queer texts, and what those results can tell us about the state of our current methods and corpora.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Presentation by Laura McGrath on “What 25,000 Book Deals Can Tell Us About Race”</title>
@@ -1412,6 +1288,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Presentation on Gender and Domestic Technology in Mid-Century Women’s Magazine</title>
     <link href="https://litlab.stanford.edu/news/2022-03-09-presentation-on-gender-and-domestic-technology-in-mid-century-women-s-magazine/"/>
@@ -1421,6 +1298,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;This project investigates the postwar representation of domestic technology in the Women’s Magazine Archive, a corpus of 20th century women’s magazines, looking at fiction, advertisements, and articles from 1945 to 1975. While the connection between fiction and the 20th Century’s changing technologies of communication and transportation has been the subject of extended scholarship, including some of the work that has emerged from the Literary Lab, this project brings the same questions into the home. We focus on household appliances because the common but specific terminology surrounding them enables us to get at larger questions about labor, gender, and ideologies thereof during a key period for their reconfiguration. Using sentence-level MDWs, word embeddings, and dependency parsing, we explore questions like: How does the domestic discourse of “modern conveniences” appear in magazine fiction aimed at women? Who works with appliances and how? Which new appliances appear in fiction, and how are they presented? What is the relationship between articles on advances in domestic technology, the advertising that sold those appliances, and fiction that represents the appliances that resulted from those advances, particularly when all appear side by side in the same publication?&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Young Readers Database of Literature (YRDL)</title>
@@ -1432,6 +1310,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;The team introduced the database and corpus and share our results from some preliminary investigations, including an exploration of “dangerous” (or exciting) key terms like “sex” and “drugs,” mapping explicit identity mentions (with a focus on Asian and Asian-American identities) across the corpus, and the beginnings of work with canon-creation projects like The Horn Book Guide and queer bibliographies.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Stanford Literary Lab at DH Unbound 2022</title>
@@ -1447,6 +1326,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Return to Realism? Comparing 19th- and 21st-Century Novel Forms</title>
     <link href="https://litlab.stanford.edu/news/2022-05-25-return-to-realism-comparing-19th-and-21st-century-novel-forms/"/>
@@ -1456,6 +1336,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;Realism is a hegemonic literary tendency in late 19th century United States, with influence over fiction-writing and social imagery spreading for decades. Arguably now we see its return to contemporary American novel, with similar topics, narratological strategies and similarly high level of literary prestige. In my project I compare topics in those two realisms to see how they carry meanings related to the socio-political circumstances that accompanied the rise of the Realist novel in the 19th century, and the contemporary neoliberal shift towards individualism, marketization, and economic and political liberalism.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Stanford Literary Lab at DH 2022</title>
@@ -1472,6 +1353,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Religion Remix’d: The Language of Romanticism between Canon and Archive</title>
     <link href="https://litlab.stanford.edu/news/2022-10-09-religion-remix-d-the-language-of-romanticism-between-canon-and-archive/"/>
@@ -1481,6 +1363,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;The poets that we have traditionally studied as “Romantic” are outliers among their contemporaries. Even as Wordsworth issued the call for poetry on the “incidents and situations of common life” the vast majority of poetry written between 1780 and 1830 took traditional, frequently religious, subjects and imagery as its object. And yet, the vocabulary of religion is not absent from the work of the canonical poets of the period, including Wordsworth, Hemans, Smith, and, of course, Blake. Despite the semantic similarities of their poetry to the archival religious poetry of the period, their use of religious language does not bring them any closer to the religious poetry of their less famous contemporaries. In this project, I use a set of computational methods to explore how canonical poets appropriate the semantics of religion, using it to construct a wholly new discourse in a way that remains inaccessible to traditional critical methods and sheds light on the differentiation of the canon and the archive.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Character, Otherness, and the Non-Human in the Star Wars Novel Corpus</title>
@@ -1493,6 +1376,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Loudness and Suspense in 19th Century Fiction</title>
     <link href="https://litlab.stanford.edu/news/2022-11-13-loudness-and-suspense-in-19th-century-fiction/"/>
@@ -1502,6 +1386,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;In a sound studies approach to a literary studies use case, she analyzes whether there is a correlation between the diegetic description of environmental sounds and suspenseful text passages in a 19th century English novel corpus. Drawing on theories of suspense in literary fiction and some findings from the 2014-2018 Literary Lab Project &amp;quot;Suspense: Language, Narrative, Affect&amp;quot;, she argues that suspenseful passages contain more detailed descriptions of the story’s environmental soundscape than unsuspenseful passages (e.g., the growl of a wild animal, the creaking of a wooden floor in a silent room) which consequently stretches out the story and delays the resolution of the conflict, increasing the degree of suspense in literary text.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Two presentations from Lab members</title>
@@ -1520,6 +1405,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Truth in Fiction: Scientific Facts and Truth in Fiction</title>
     <link href="https://litlab.stanford.edu/news/2023-02-05-truth-in-fiction-scientific-facts-and-truth-in-fiction/"/>
@@ -1530,6 +1416,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;The rise of “climate fiction,” or “cli-fi” has suggested the possibility that fiction can be more effective in convincing a skeptical public of the necessity of immediate action than well-intentioned science communication. Given the complicated relationship of fiction to truth, it has become more urgent than ever to understand the ways in which novels are able to couch fact within the fabric of their fiction. When so much science communication studies has been concerned with false or misleading narratives about climate change, how do we grapple with deliberately false accounts (fiction) that seek to spread pro-scientific messaging?&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Spatial itineraries and political identities: “The Troubles” in contemporary fiction</title>
@@ -1542,6 +1429,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Modeling Domestic Space</title>
     <link href="https://litlab.stanford.edu/news/2023-03-12-modeling-domestic-space/"/>
@@ -1551,6 +1439,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;Is it possible to model domestic space in fiction? And what might such a model show about the features of domestic space, its discursive correlates, its historical and generic distribution, and more broadly about space and domesticity? Focusing on British nineteenth-century novels, this project attempts to make such a model. Along the way, we discuss why this seems like a tractable kind of space to model; why nineteenth-century novels present an important case; and how exactly we might operationalize domestic space and conceptualize a model of it.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>A New LitLab Website</title>
@@ -1585,6 +1474,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>Operationalizing Canonicity</title>
     <link href="https://litlab.stanford.edu/news/2023-04-16-operationalizing-canonicity/"/>
@@ -1594,6 +1484,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 &lt;p&gt;This presentation summarized their work on the notion of canonicity in the French context. They proposed an operationalization of the French literary canon through its contemporary reception, focusing particularly on the role of the school institution in the making of the canon. Their statistical modeling based on textual elements achieves predictive results with an accuracy from 70% to 74%. They assume that this linguistic norm is the result of biased latent selection mechanisms that are producing literary &amp;quot;immortality&amp;quot;.&lt;/p&gt;
 </content>
   </entry>
+  
   
   <entry>
     <title>Literary Criticism and Theory</title>
@@ -1605,6 +1496,7 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
 </content>
   </entry>
   
+  
   <entry>
     <title>LitLab Members Present at ACH and DH Conferences</title>
     <link href="https://litlab.stanford.edu/news/-litlab-members-present-at-ach-and-dh-conferences/"/>
@@ -1613,4 +1505,5 @@ We will start with quick overviews of two relevant subjects: (a) the history of 
     <content type="html">&lt;p&gt;Several Lab and individual projects made an appearance at major conferences this summer. At ACH, Francesco Bacci presented on &amp;quot;Conversion Therapy Novels: a Qualitative and Quantitative Genre Study&amp;quot;, Quinn Dombrowski presented on DH conference metrics as part of the panel &amp;quot;Digital (Humanities) Trace Data: Critical Approaches to Platforms, APIs, and Metrics for Studying DH Communities&amp;quot;, Merve Tekgürler presented with Umar Patel on &amp;quot;Ottoman (Turkish) NLP: Exploring the Application of Contemporary Text Technologies in 18th Century Histories&amp;quot;, and Carmen Thong presented on &amp;quot;Scaling to the World: DH as Theorized Method&amp;quot;. At DH 2023 in Graz, Quinn Dombrowski and Nichole Nomura presented on the panel &amp;quot;Readers, Tropes, and Translations: Directions for Digital Research into Youth Literature&amp;quot;, Nichole on &amp;quot;Young Readers, Textual Difficulty, and Genre&amp;quot;, and Quinn on &amp;quot;Wherefore Art Thou Shakespeare: How Identifiable are Shakespeare Adaptations for Young Readers?&amp;quot;&lt;/p&gt;
 </content>
   </entry>
+  
 </feed>
