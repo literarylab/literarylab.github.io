@@ -92,9 +92,11 @@
 <div class="col-xs-6 col-md-4">
 <h2>Updates</h2>
 	  {% for post in latest_posts.slice(0,3)|sort(false, true, 'post.data.date') %}
+    {%if post.data.status !== "draft"%}
 	  
 	  <h4 class="frontslide"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h4>
 	  <p>{{post.data.teaser}}</p>
+    {%endif%}
 	  {% endfor %}
     <a href="/feed.xml"><img src="/assets/favicons/rss.png" style="height:20px" /></a>
       </div>
