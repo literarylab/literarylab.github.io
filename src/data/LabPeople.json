@@ -267,6 +267,11 @@
 		"status":"alumni"
 	},
 	{
+		"key":"gkeane",
+		"name": "Gabi Keane",
+		"status":"member"
+	},
+	{
 		"key":"akeener",
 		"name":"Alix Keener",
 		"status": "member",
@@ -378,8 +383,7 @@
 	{
 		"key":"jmonaco",
 		"name":"Jessica Monaco",
-		"labtitle":"Core Research Team",
-		"email": "jmmonaco@stanford.edu",
+		"status":"member",
 		"bio": "Jessica Monaco is a PhD candidate in the Stanford University Department of English. She works primarily on character and the Gothic in British literature from the late eighteenth to late nineteenth century and cross-temporally by drawing from current medieval studies. In the lab, she is coordinating a project using supervised models to explore similarities between the Gothic and adjacent genres.",
 		"photo":"/assets/images/people/jmonaco.jpg"
 	},
@@ -415,8 +419,10 @@
 	{
 		"key":"uoh",
 		"name":"Unjoo Oh",
-		"status": "member",
-		"email": "ujoh@stanford.edu"
+		"labtitle":"Core Research Team",
+		"bio": "Unjoo Oh is a PhD candidate in English literature at Stanford University. She received her MA degree in English from Sogang University, South Korea. Her research centers around British literature from the fourteenth to seventeenth centuries, especially on how (in)organic nonhumans affect and are affected by the remediation of premodern texts. She is also a graduate coordinator of Renaissances at Stanford. Unjoo Oh can be reached at ujoh@stanford.edu.",
+		"email": "ujoh@stanford.edu",
+		"photo":"/assets/images/people/uoh.jpg"
 	},
 	{
 		"key":"dpestre",
