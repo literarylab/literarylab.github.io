@@ -7,7 +7,7 @@ members: [radams, malgeehewitt, sguhr, chaberfield, jmonaco, asherman]
 status: 'archive'
 type: 'lab'
 date_updated: 2023-01-18
-start_date: 2022-09-01
+start_date: 2023-08-01
 end_date:
 shortdesc: |
   This project uses supervised modelling techniques to explore the connections of the gothic novel to contemporaneous modes of literary realism.
