@@ -1,19 +1,17 @@
 ---
 layout: base
 ---
+
 {%- set comma = joiner(", ") -%}
 <!-- page.html -->
 <div class="post">
-
   <header class="post-header">
     <h1 class="post-title">{{ title }}</h1>
-
-
   </header>
 
   {% if pamphlet %}
-  <div class="card pamphletbox" style="width: 30rem;">
-    <img class="card-img-top" src="{{pamphlet.p_image}}" alt="{{pamphlet.p_title}} pamphlet image">
+  <div class="card pamphletbox" style="width: 30rem">
+    <img class="card-img-top" src="{{pamphlet.p_image}}" alt="{{pamphlet.p_title}} pamphlet image" />
     <div class="card-body">
       <h5 class="card-title">Pamphlet: {{pamphlet.p_title}}</h5>
       <p class="card-text">published {{pamphlet.p_pubdate | postDate}}</p>
@@ -23,75 +21,49 @@ layout: base
   </div>
   {% endif %}
 
-
-  <div class="card projectbox" style="width: 30rem;">
+  <div class="card projectbox" style="width: 30rem">
     <div class="card-body">
       <h5 class="card-title">About the project</h5>
-	  
-	  {% if status %}
+
+      {% if status %}
       <p class="card-text"><strong>Status: </strong> {{status }}</p>
-	  
-	  {% endif %}
-	  
-	  
-      {% if members %}
-      <p class="card-text"><strong>Project team: </strong>
-        {%-for member in members-%}
-        
-		
-		
-  {% set member_loop = loop %}
-	{%- for person in LabPeople -%}
-	    {%- if member == person.key -%}
-	{{- person.name -}}{{ ", " if not member_loop.last }}{% endif %}{% endfor %}{% endfor %};
-	
-        {% endif %}
+
+      {% endif %} {% if members %}
+      <p class="card-text">
+        <strong>Project team: </strong>
+        {%-for member in members-%} {% set member_loop = loop %} {%- for person in LabPeople -%} {%- if member ==
+        person.key -%} {{- person.name -}}{{ ", " if not member_loop.last }}{% endif %}{% endfor %}{% endfor %}; {%
+        endif %}
       </p>
-	  
+
       {% if collaborators %}
-      <p class="card-text"><strong>Collaborators: </strong>
-        {%-for collaborator in collaborators-%}
-		
-    {% set collaborator_loop = loop %}
-		{%- for person in LabPeople -%}
-		    {%- if collaborator == person.key -%}
-		{{- person.name -}}{{ ", " if not collaborator_loop.last }}{% endif %}{% endfor %}{% endfor %};
-		
-        {% endif %}
+      <p class="card-text">
+        <strong>Collaborators: </strong>
+        {%-for collaborator in collaborators-%} {% set collaborator_loop = loop %} {%- for person in LabPeople -%} {%-
+        if collaborator == person.key -%} {{- person.name -}}{{ ", " if not collaborator_loop.last }}{% endif %}{%
+        endfor %}{% endfor %}; {% endif %}
       </p>
-	  
-	  
-	  
+
       {% if start_date %}
       <p class="card-text"><strong>Start date: </strong> {{start_date | postDate }}</p>
-      {% endif %}
-	  
-      {% if end_date %}
+      {% endif %} {% if end_date %}
       <p class="card-text"><strong>End date: </strong> {{end_date | postDate }}</p>
-      {% endif %}
-      {% if date_updated %}
+      {% endif %} {% if date_updated %}
       <p class="card-text"><strong>Last updated: </strong> {{date_updated | postDate }}</p>
-      {% endif %}
-	  
-	  {%-for post in collections.news | reverse -%}
-	  {%-for postproject in post.data.projects-%}
-	  {%- if postproject == key -%}
-	  <p class="card-text"><a href="{{post.data.permalink | safe}}">{{post.data.title}}</a><br />{{post.date | postDate}}</p>
-	  {% endif %}
-	  {% endfor %}
-	  {% endfor %}
-
-    {% set publications = collections.publications | filterCollectionByProject(key) %}
-    {% if publications.length %}
+      {% endif %} {%-for post in collections.news | reverse -%} {%-for postproject in post.data.projects-%} {%- if
+      postproject == key -%}
+      <p class="card-text"><a href="{{ post.url | url }}">{{post.data.title}}</a><br />{{post.date | postDate}}</p>
+      {% endif %} {% endfor %} {% endfor %} {% set publications = collections.publications |
+      filterCollectionByProject(key) %} {% if publications.length %}
       <strong>Publications</strong>
       <ul>
         {% for publication in publications %}
-          <li>{{publication.data.title}}</li>
+        <li>{{publication.data.title}}</li>
         {% endfor %}
       </ul>
-    {% endif %}
+      {% endif %}
     </div>
   </div>
- 
-  <div class="col"> <img src="{{image}}" style="float:left; margin-right:10px;" />{{content | safe}} </div>
+
+  <div class="col"><img src="{{image}}" style="float: left; margin-right: 10px" />{{content | safe}}</div>
 </div>

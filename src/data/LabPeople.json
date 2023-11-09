@@ -1,600 +1,602 @@
 [
-	{
-		"key": "labbattista",
-		"name": "Luca Abbattista",
-		"email": "luca.abbattista@gmail.com",
-		"status": "alumni"
-	},
-	{
-		"key":"sabiatti",
-		"name":"Simone Abiatti",
-		"status":"collaborator",
-		"affiliation":"University of Bergamo"
-	},
-	{
-		"key":"radams",
-		"name":"Rebecca Adams"
-	},
-	{
-		"key":"malgeehewitt",
-		"name":"Mark Algee-Hewitt",
-		"labtitle": "Director",
-		"status": "stanford",
-		"email": "malgeehe@stanford.edu",
-		"website": "http://markalgeehewitt.org/",
-		"bio": "Mark Algee-Hewitt’s research focuses on the eighteenth and early nineteenth centuries in England and Germany and seeks to combine literary criticism with digital and quantitative analyses of literary texts. In particular he is interested in the history of aesthetic theory and the development and transmission of aesthetic and philosophic concepts during the Enlightenment and Romantic periods. He is also interested in the relationship between aesthetic theory and the poetry of the long eighteenth century.",
-		"photo":"/assets/images/people/malgeehewitt.jpg"
-	},
-	{
-		"key":"sallison",
-		"name":"Sarah Allison",
-		"status":"alumni",
-		"affiliation":"Loyola University",
-		"email":"sallison@loyno.edu"
-	},
-	{
-		"key":"ealvarado",
-		"name":"Ena Alvarado"
-	},
-	{
-		"key":"kbarrett",
-		"name":"Kay Barrett",
-		"status":"member"
-	},
-	{
-		"key": "jbender",
-		"name": "John Bender",
-		"email": "bender@stanford.edu",
-		"website": "https://english.stanford.edu/people/john-bender"
-	},
-	{
-		"key":"lbessette",
-		"name":"Lee Skallerup Bessette"
-	},
-	{
-		"key":"mburger",
-		"name":"Michael Burger"
-	},
-	{
-		"key":"cblevins",
-		"name":"Cameron Blevins",
-		"status":"alumni",
-		"affiliation":"Northeastern University",
-		"email":"cblevins@stanford.edu"
-	},
-	{
-		"key":"kbowers",
-		"name":"Katia Bowers"
-	},
-	{
-		"key":"mbronstein",
-		"name":"Michaela Bronstein"
-	},
-	{
-		"key":"ebrush",
-		"name":"Emma Brush",
-		"status": "member",
-		"email": "ebrush@stanford.edu"
-	},
-	{
-		"key":"mberger",
-		"name":"Michael Burger",
-		"status":"alumni",
-		"affiliation":"Roger Williams University",
-		"email":"mburger@rwu.edu"
-	},
-	{
-		"key":"lburleson",
-		"name":"Lydia Burleson",
-		"status":"member"
-	},
-	{
-		"key":"abutlerwall",
-		"name":"Annika Butler-Wall",
-		"status":"member"
-	},
-	{
-		"key":"mcecire",
-		"name":"Maria Sachiko Cecire"
-	},
-	{
-		"key":"cdavis",
-		"name":"Chelsea Davis"
-	},
-	{
-		"key":"cchen",
-		"name":"Cynthia Chen",
-		"status":"alumni"
-	},
-	{
-		"key":"qdombrowski",
-		"name":"Quinn Dombrowski",
-		"status": "member",
-		"email": "qad@stanford.edu"
-	},
-	{
-		"key":"sdouris",
-		"name":"Steele Douris",
-		"status": "member",
-		"email": "sdouris@stanford.edu"
-	},
-	{
-		"key":"adroge",
-		"name":"Abigail Droge",
-		"status":"alumni",
-		"affiliation":"Emory University"
-	},
-	{
-		"key":"ydu",
-		"name":"Yibing Du"
-	},
-	{
-		"key":"teccles",
-		"name":"Tasha Eccles",
-		"status":"alumni",
-		"affiliation":"Yale University",
-		"email":"anastasia.eccles@yale.edu"
-	},
-	{
-		"key":"leidem",
-		"name":"Laura Eidem"
-	},
-	{
-		"key":"efinn",
-		"name":"Ed Finn",
-		"status":"alumni",
-		"affiliation":"Arizona State University",
-		"email":"edfinn@asu.edu"
-	},
-	{
-		"key":"mfrank",
-		"name":"Morgan Frank",
-		"status":"alumni",
-		"affiliation":"Harvard University",
-		"email":"efrank@wesleyan.edu"
-	},
-	{
-		"key":"zfrank",
-		"name":"Zephyr Frank"
-	},
-	{
-		"key":"efredner",
-		"name":"Erik Fredner",
-		"email":"fredner@virginia.edu",
-		"status":"collaborator",
-		"affiliation": "University of Virginia"
-	},
-	{
-		"key":"lgalindoromero",
-		"name":"Laura Galindo-Romero"
-	},
-	{
-		"key":"kge",
-		"name":"Karen Ge"
-	},
-	{
-		"key":"mgemma",
-		"name":"Marissa Gemma",
-		"status":"alumni"
-	},
-	{
-		"key":"jgershon",
-		"name":"Julia Gershon",
-		"status":"RA"
-	},
-	{
-		"key":"vgoogasian",
-		"name":"Vickie Googasian",
-		"status":"alumni"
-	},
-	{
-		"key":"mgorshkova",
-		"name":"Masha Gorshkova"
-	},
-	{
-		"key":"sguhr",
-		"name":"Svenja Guhr",
-		"status": "collaborator",
-		"email": "svenja.guhr@tu-darmstadt.de",
-		"affiliation": "Technical University of Darmstadt"
-	},
-	{
-		"key":"chaberfield",
-		"name":"Catrin Haberfield",
-		"status":"member"
-	},
-	{
-		"key":"shadi",
-		"name":"Shana Hadi"
-	},
-	{
-		"key":"ahanlon",
-		"name":"Aaron Hanlon",
-		"affiliation":"Colby College",
-		"status":"collaborator"
-	},
-	{
-		"key":"rheuser",
-		"name":"Ryan Heuser",
-		"email":"ryan.heuser@princeton.edu",
-		"status":"collaborator",
-		"affiliation": "Center for Digital Humanities, Princeton University"
-	},
-	{
-		"key":"mhill",
-		"name":"Mike Hill",
-		"affiliation":"SUNY Albany",
-		"status":"collaborator"
-	},
-	{
-		"key":"yilchuk",
-		"name":"Yuliya Ilchuk",
-		"status":"collaborator",
-		"affiliation": "Department of Slavic Languages and Literatures, Stanford University",
-		"email": "yilchuk@stanford.edu"
-	},
-	{
-		"key":"yigarashi",
-		"name":"Yohei Igarashi",
-		"affiliation":"University of Connecticut",
-		"status":"collaborator"
-	},
-	{
-		"key":"aisaacs",
-		"name":"Asha Isaacs"
-	},
-	{
-		"key":"mjockers",
-		"name":"Matthew Jockers"
-	},
-	{
-		"key":"njohnson",
-		"name":"Natasha Johnson",
-		"status": "",
-		"email": "nmj@stanford.edu"
-	},
-	{
-		"key":"djurafsky",
-		"name":"Dan Jurafsky"
-	},
-	{
-		"key":"mkanatova",
-		"name":"Maria Kanatova"
-	},
-	{
-		"key":"hkatsma",
-		"name": "Holst Katsma",
-		"status":"alumni"
-	},
-	{
-		"key":"gkeane",
-		"name": "Gabi Keane",
-		"status":"member"
-	},
-	{
-		"key":"akeener",
-		"name":"Alix Keener",
-		"status": "member",
-		"email": "alixkee@stanford.edu"
-	},
-	{
-		"key":"mkraxenberger",
-		"name":"Maria Kraxenberger",
-		"email":"maria.kraxenberger@googlemail.com",
-		"status":"alumni",
-		"affiliation": "University of Suttgart"
-	},
-	{
-		"key":"mkurzynski",
-		"name":"Maciej Kurzynski",
-		"affiliation":"Lingnan University",
-		"status":"collaborator"
-	},
-	{
-		"key":"alamar",
-		"name":"Annie K. Lamar",
-		"status": "member",
-		"email": "kalamar@stanford.edu"
-	},
-	{
-		"key":"alang",
-		"name":"Anouk Lang"
-	},
-	{
-		"key":"alaw",
-		"name":"Anita Law"
-	},
-	{
-		"key":"glayneworthey",
-		"name":"Glen Layne-Worthey",
-		"email":"gworthey@illinois.edu",
-		"status":"alumni",
-		"affiliation": "HathiTrust Research Center, University of Illinois Urbana-Champaign"
-	},
-	{
-		"key":"elee",
-		"name":"Eun Ji Lee"
-	},
-	{
-		"key":"llekhac",
-		"name":"Long Le-Khac",
-		"email":"llekhac@luc.edu",
-		"status":"alumni",
-		"affiliation": "Loyola University, Chicago"
-	},
-	{
-		"key":"zleniarska",
-		"name":"Zuza Leniarska",
-		"status":"collaborator",
-		"affiliation":"University of Warsaw"
-	},
-	{
-		"key":"alenzo",
-		"name":"Antonio Lenzo"
-	},
-	{
-		"key":"clindemann",
-		"name":"Charlotte Lindemann",
-		"labtitle":"member",
-		"email": "cilindem@stanford.edu",
-		"bio": "Charlotte Lindemann is a PhD candidate in the department of English, working on 'Unreliable Dialogue: Characters’ Speech and the Disappearing Narrator in Nineteenth Century American Fiction'.",
-		"photo":"/assets/images/people/clindemann.jpg"
-	},
-	{
-		"key":"tllewellyn",
-		"name":"Tanya Llewellyn"
-	},
-	{
-		"key":"amanshel",
-		"name":"Xander Manshel",
-		"email":"alexander.manshel@gmail.com",
-		"status":"alumni",
-		"affiliation": "McGill University"
-	},
-	{
-		"key":"nmavrody",
-		"name":"Nika Mavrody"
-	},
-	{
-		"key":"mmcgurl",
-		"name":"Mark McGurl",
-		"status":"collaborator",
-		"affiliation": "Stanford English Department"
-	},
-	{
-		"key":"dmcclure",
-		"name":"David McClure"
-	},
-	{
-		"key":"lmendelman",
-		"name":"Lisa Mendelman",
-		"status":"collaborator",
-		"affiliation": "Menlo College"
-	},
-	{
-		"key":"lmessarra",
-		"name":"Luca Messarra",
-		"status":"member"
-	},
-	{
-		"key":"amilyakina",
-		"name":"Alexandra Milyakina"
-	},
-	{
-		"key":"jmonaco",
-		"name":"Jessica Monaco",
-		"status":"member",
-		"bio": "Jessica Monaco is a PhD candidate in the Stanford University Department of English. She works primarily on character and the Gothic in British literature from the late eighteenth to late nineteenth century and cross-temporally by drawing from current medieval studies. In the lab, she is coordinating a project using supervised models to explore similarities between the Gothic and adjacent genres.",
-		"photo":"/assets/images/people/jmonaco.jpg"
-	},
-	{
-		"key":"fmoretti",
-		"name":"Franco Moretti"
-	},
-	{
-		"key":"amukamal",
-		"name":"Anna Mukamal",
-		"status":"collaborator",
-		"affiliation": "Coastal Carolina University",
-		"email": "amukamal@coastal.edu"
-	},
-	{
-		"key":"fmuzny",
-		"name":"Felix Muzny",
-		"email":"muzny@colorado.edu",
-		"status":"alumni"
-	},
-	{
-		"key":"gmuzny",
-		"name":"Grace Muzny"
-	},
-	{
-		"key":"nnomura",
-		"name":"Nichole Nomura",
-		"labtitle":"Core Research Team",
-		"email":"nnomura@stanford.edu",
-		"bio": "Nichole Nomura received her PhD from the Stanford University Department of English and is a graduate of Stanford’s Graduate School of Education (M.A). Currently a postdoctoral scholar at C.E.S.T.A., she studies textual difficulty, representations of literary study in school contexts, and how science fiction and young adult literature teach and are taught, using methods from the digital humanities, literary criticism, and education.",
-		"photo":"/assets/images/people/nnomura.jpg"
-	},
-	{
-		"key":"uoh",
-		"name":"Unjoo Oh",
-		"labtitle":"Core Research Team",
-		"bio": "Unjoo Oh is a PhD candidate in English literature at Stanford University. She received her MA degree in English from Sogang University, South Korea. Her research centers around British literature from the fourteenth to seventeenth centuries, especially on how (in)organic nonhumans affect and are affected by the remediation of premodern texts. She is also a graduate coordinator of Renaissances at Stanford.",
-		"email": "ujoh@stanford.edu",
-		"photo":"/assets/images/people/uoh.jpg"
-	},
-	{
-		"key":"dpestre",
-		"name":"Dominique Pestre",
-		"email":"pestre.dominique@gmail.com",
-		"status":"alumni"
-	},
-	{
-		"key":"spetruzzelli",
-		"name":"Stefania Petruzzelli",
-		"email":"stefania.p@hotmail.it",
-		"status":"alumni"
-	},
-	{
-		"key":"tpilipovec",
-		"name":"Tatyana Pilipovec"
-	},
-	{
-		"key":"jporter",
-		"name":"J.D. Porter",
-		"email":"jack.d.porter@gmail.com",
-		"status": "collaborator",
-		"affiliation": "Price Lab; University of Pennsylvania"
-	},
-	{
-		"key":"kreardon",
-		"name":"Kelsey Reardon",
-		"status":"alumni"
-	},
-	{
-		"key":"mrozopaz",
-		"name":"Mariana Rozo Paz"
-	},
-	{
-		"key":"rrisam",
-		"name":"Roopika Risam"
-	},
-	{
-		"key":"rsaldívar",
-		"name":"Ramón Saldívar",
-		"status":"collaborator",
-		"affiliation":"Stanford English Department"
-	},
-	{
-		"key":"sschwarzhappel",
-		"name":"Sarah Sophie Schwarzhappel",
-		"status":"RA"
-	},
-	{
-		"key":"jsensenbaugh",
-		"name":"Jonathan Sensenbaugh"
-	},
-	{
-		"key":"rseow",
-		"name":"Riley Seow"
-	},
-	{
-		"key":"ashelya",
-		"name":"Artjom Shelya"
-	},
-	{
-		"key":"ashepard",
-		"name":"Andrew Shepard",
-		"email":"Andrew.Shephard@utah.edu",
-		"status":"alumni",
-		"affiliation": "University of Utah"
-	},
-	{
-		"key":"asherman",
-		"name":"Alex Sherman",
-		"labtitle":"Core Research Team",
-		"email":"ajsherm@stanford.edu",
-		"bio": "Alex Sherman is a Ph.D. candidate in English at Stanford University. He studies literature and science, maritime colonialism, and Gothic fiction, focusing on the British empire in the eighteenth century. His work with the Literary Lab has appeared in The Journal of Cultural Analytics and Post45. He is also a graduate coordinator at the Center for the Study of the Novel.",
-		"photo":"/assets/images/people/asherman.jpg"
-	},
-	{
-		"key":"esibilio",
-		"name":"Elisabetta Sibilio",
-		"email":"e.sibilio@unicas.it",
-		"status":"alumni",
-		"affiliation": "Università degli studi di Cassino"
-	},
-	{
-		"key":"msiegal",
-		"name":"Micah Siegal",
-		"email":"msiegel9@stanford.edu",
-		"status":"alumni"
-	},
-	{
-		"key":"osobchuk",
-		"name":"Oleg Sobchuk",
-		"email":"kuchbos@gmail.com",
-		"status":"alumni",
-		"affiliation": "University of Tartu"
-	},
-	{
-		"key":"jtackett",
-		"name":"Justin Tackett"
-	},
-	{
-		"key":"rta",
-		"name":"Regina T.H. Ta",
-		"status": "alumni",
-		"email": "rta@stanford.edu"
-	},
-	{
-		"key":"mtekgurler",
-		"name":"Merve Tekgürler",
-		"status": "member",
-		"email": "mtekgurl@stanford.edu"
-	},
-	{
-		"key":"kterry",
-		"name":"Kendra Terry",
-		"status": "collaborator",
-		"affiliation": "Derner School of Psychology, Adelphi University"
-	},
-	{
-		"key":"ptinits",
-		"name":"Peeter Tinits"
-	},
-	{
-		"key":"sthomas",
-		"name":"Sarah Thomas"
-	},
-	{
-		"key":"cthong",
-		"name":"Carmen Thong",
-		"labtitle":"Core Research Team",
-		"email":"tcarmen@stanford.edu",
-		"bio": "Carmen Thong is a PhD candidate in English and is completing an MA in Public Policy at Stanford University. She works in the fields of Postcolonial/World Literature and Digital Humanities, and studies how texts from the Global South are discovered within the global literary supply chain. She is also a Knight Hennessy scholar and a Jacobsson Family Stanford Interdisciplinary Graduate Fellow.",
-		"photo":"/assets/images/people/cthong.jpg"
-	},
-	{
-		"key":"etreharne",
-		"name":"Elaine Treharne",
-		"status":"collaborator",
-		"affiliation":"Stanford English Department"
-	},
-	{
-		"key":"hwalser",
-		"name":"Hannah Walser",
-		"email":"hkpmwalser@gmail.com",
-		"status":"alumni",
-		"affiliation": "New York University"
-	},
-	{
-		"key":"mwarner",
-		"name":"Matt Warner",
-		"labtitle": "Associate Director",
-		"email": "mattgw@stanford.edu",
-		"bio": "Matt Warner works on the intersection of queer theory and computational methods. His research focuses on the 20th century history of anglophone queer book publication and circulation, with a particular focus on the history of bibliographies, book recommendation and their connection to queer representation in fiction.",
-		"photo":"/assets/images/people/mwarner.jpg"
-	},
-	{
-		"key":"mwitmore",
-		"name":"Michael Witmore"
-	},
-	{
-		"key":"jwolf",
-		"name":"Jennifer Wolf",
-		"status":"collaborator",
-		"affiliation":"Stanford Graduate School of Education"
-	},
-	{
-		"key":"iyamboliev",
-		"name":"Irena Yamboliev",
-		"status":"alumni"
-	},
-	{
-		"key":"syates",
-		"name":"Sabrina Gabrielle Yates",
-		"email":"syates2@stanford.edu"
-	}
+  {
+    "key": "labbattista",
+    "name": "Luca Abbattista",
+    "email": "luca.abbattista@gmail.com",
+    "status": "alumni"
+  },
+  {
+    "key": "sabiatti",
+    "name": "Simone Abiatti",
+    "status": "collaborator",
+    "affiliation": "University of Bergamo"
+  },
+  {
+    "key": "radams",
+    "name": "Rebecca Adams"
+  },
+  {
+    "key": "malgeehewitt",
+    "name": "Mark Algee-Hewitt",
+    "labtitle": "Director",
+    "status": "stanford",
+    "email": "malgeehe@stanford.edu",
+    "website": "http://markalgeehewitt.org/",
+    "bio": "Mark Algee-Hewitt’s research focuses on the eighteenth and early nineteenth centuries in England and Germany and seeks to combine literary criticism with digital and quantitative analyses of literary texts. In particular he is interested in the history of aesthetic theory and the development and transmission of aesthetic and philosophic concepts during the Enlightenment and Romantic periods. He is also interested in the relationship between aesthetic theory and the poetry of the long eighteenth century.",
+    "photo": "/assets/images/people/malgeehewitt.jpg"
+  },
+  {
+    "key": "sallison",
+    "name": "Sarah Allison",
+    "status": "alumni",
+    "affiliation": "Loyola University",
+    "email": "sallison@loyno.edu"
+  },
+  {
+    "key": "ealvarado",
+    "name": "Ena Alvarado"
+  },
+  {
+    "key": "kbarrett",
+    "name": "Kay Barrett",
+    "status": "member"
+  },
+  {
+    "key": "jbender",
+    "name": "John Bender",
+    "email": "bender@stanford.edu",
+    "website": "https://english.stanford.edu/people/john-bender"
+  },
+  {
+    "key": "lbessette",
+    "name": "Lee Skallerup Bessette"
+  },
+  {
+    "key": "mburger",
+    "name": "Michael Burger"
+  },
+  {
+    "key": "cblevins",
+    "name": "Cameron Blevins",
+    "status": "alumni",
+    "affiliation": "Northeastern University",
+    "email": "cblevins@stanford.edu"
+  },
+  {
+    "key": "kbowers",
+    "name": "Katia Bowers"
+  },
+  {
+    "key": "mbronstein",
+    "name": "Michaela Bronstein"
+  },
+  {
+    "key": "ebrush",
+    "name": "Emma Brush",
+    "status": "member",
+    "email": "ebrush@stanford.edu"
+  },
+  {
+    "key": "mberger",
+    "name": "Michael Burger",
+    "status": "alumni",
+    "affiliation": "Roger Williams University",
+    "email": "mburger@rwu.edu"
+  },
+  {
+    "key": "lburleson",
+    "name": "Lydia Burleson",
+    "status": "member"
+  },
+  {
+    "key": "abutlerwall",
+    "name": "Annika Butler-Wall",
+    "status": "member"
+  },
+  {
+    "key": "mcecire",
+    "name": "Maria Sachiko Cecire"
+  },
+  {
+    "key": "cdavis",
+    "name": "Chelsea Davis"
+  },
+  {
+    "key": "cchen",
+    "name": "Cynthia Chen",
+    "status": "alumni"
+  },
+  {
+    "key": "qdombrowski",
+    "name": "Quinn Dombrowski",
+    "labtitle": "Core Research Team",
+    "email": "qad@stanford.edu",
+    "bio": "Quinn Dombrowski supports non-English digital humanities and runs the Stanford Textile Makerspace as the Academic Technology Specialist in the Division of Literatures, Cultures, and Languages and Stanford Libraries. In addition, they serve as co-President of the Association for Computers and the Humanities.",
+    "photo": "/assets/images/people/qdombrowski.jpg"
+  },
+  {
+    "key": "sdouris",
+    "name": "Steele Douris",
+    "status": "member",
+    "email": "sdouris@stanford.edu"
+  },
+  {
+    "key": "adroge",
+    "name": "Abigail Droge",
+    "status": "alumni",
+    "affiliation": "Emory University"
+  },
+  {
+    "key": "ydu",
+    "name": "Yibing Du"
+  },
+  {
+    "key": "teccles",
+    "name": "Tasha Eccles",
+    "status": "alumni",
+    "affiliation": "Yale University",
+    "email": "anastasia.eccles@yale.edu"
+  },
+  {
+    "key": "leidem",
+    "name": "Laura Eidem"
+  },
+  {
+    "key": "efinn",
+    "name": "Ed Finn",
+    "status": "alumni",
+    "affiliation": "Arizona State University",
+    "email": "edfinn@asu.edu"
+  },
+  {
+    "key": "mfrank",
+    "name": "Morgan Frank",
+    "status": "alumni",
+    "affiliation": "Harvard University",
+    "email": "efrank@wesleyan.edu"
+  },
+  {
+    "key": "zfrank",
+    "name": "Zephyr Frank"
+  },
+  {
+    "key": "efredner",
+    "name": "Erik Fredner",
+    "email": "fredner@virginia.edu",
+    "status": "collaborator",
+    "affiliation": "University of Virginia"
+  },
+  {
+    "key": "lgalindoromero",
+    "name": "Laura Galindo-Romero"
+  },
+  {
+    "key": "kge",
+    "name": "Karen Ge"
+  },
+  {
+    "key": "mgemma",
+    "name": "Marissa Gemma",
+    "status": "alumni"
+  },
+  {
+    "key": "jgershon",
+    "name": "Julia Gershon",
+    "status": "RA"
+  },
+  {
+    "key": "vgoogasian",
+    "name": "Vickie Googasian",
+    "status": "alumni"
+  },
+  {
+    "key": "mgorshkova",
+    "name": "Masha Gorshkova"
+  },
+  {
+    "key": "sguhr",
+    "name": "Svenja Guhr",
+    "status": "collaborator",
+    "email": "svenja.guhr@tu-darmstadt.de",
+    "affiliation": "Technical University of Darmstadt"
+  },
+  {
+    "key": "chaberfield",
+    "name": "Catrin Haberfield",
+    "status": "member"
+  },
+  {
+    "key": "shadi",
+    "name": "Shana Hadi"
+  },
+  {
+    "key": "ahanlon",
+    "name": "Aaron Hanlon",
+    "affiliation": "Colby College",
+    "status": "collaborator"
+  },
+  {
+    "key": "rheuser",
+    "name": "Ryan Heuser",
+    "email": "ryan.heuser@princeton.edu",
+    "status": "collaborator",
+    "affiliation": "Center for Digital Humanities, Princeton University"
+  },
+  {
+    "key": "mhill",
+    "name": "Mike Hill",
+    "affiliation": "SUNY Albany",
+    "status": "collaborator"
+  },
+  {
+    "key": "yilchuk",
+    "name": "Yuliya Ilchuk",
+    "status": "collaborator",
+    "affiliation": "Department of Slavic Languages and Literatures, Stanford University",
+    "email": "yilchuk@stanford.edu"
+  },
+  {
+    "key": "yigarashi",
+    "name": "Yohei Igarashi",
+    "affiliation": "University of Connecticut",
+    "status": "collaborator"
+  },
+  {
+    "key": "aisaacs",
+    "name": "Asha Isaacs"
+  },
+  {
+    "key": "mjockers",
+    "name": "Matthew Jockers"
+  },
+  {
+    "key": "njohnson",
+    "name": "Natasha Johnson",
+    "status": "",
+    "email": "nmj@stanford.edu"
+  },
+  {
+    "key": "djurafsky",
+    "name": "Dan Jurafsky"
+  },
+  {
+    "key": "mkanatova",
+    "name": "Maria Kanatova"
+  },
+  {
+    "key": "hkatsma",
+    "name": "Holst Katsma",
+    "status": "alumni"
+  },
+  {
+    "key": "gkeane",
+    "name": "Gabi Keane",
+    "status": "member"
+  },
+  {
+    "key": "akeener",
+    "name": "Alix Keener",
+    "status": "member",
+    "email": "alixkee@stanford.edu"
+  },
+  {
+    "key": "mkraxenberger",
+    "name": "Maria Kraxenberger",
+    "email": "maria.kraxenberger@googlemail.com",
+    "status": "alumni",
+    "affiliation": "University of Suttgart"
+  },
+  {
+    "key": "mkurzynski",
+    "name": "Maciej Kurzynski",
+    "affiliation": "Lingnan University",
+    "status": "collaborator"
+  },
+  {
+    "key": "alamar",
+    "name": "Annie K. Lamar",
+    "status": "member",
+    "email": "kalamar@stanford.edu"
+  },
+  {
+    "key": "alang",
+    "name": "Anouk Lang"
+  },
+  {
+    "key": "alaw",
+    "name": "Anita Law"
+  },
+  {
+    "key": "glayneworthey",
+    "name": "Glen Layne-Worthey",
+    "email": "gworthey@illinois.edu",
+    "status": "alumni",
+    "affiliation": "HathiTrust Research Center, University of Illinois Urbana-Champaign"
+  },
+  {
+    "key": "elee",
+    "name": "Eun Ji Lee"
+  },
+  {
+    "key": "llekhac",
+    "name": "Long Le-Khac",
+    "email": "llekhac@luc.edu",
+    "status": "alumni",
+    "affiliation": "Loyola University, Chicago"
+  },
+  {
+    "key": "zleniarska",
+    "name": "Zuza Leniarska",
+    "status": "collaborator",
+    "affiliation": "University of Warsaw"
+  },
+  {
+    "key": "alenzo",
+    "name": "Antonio Lenzo"
+  },
+  {
+    "key": "clindemann",
+    "name": "Charlotte Lindemann",
+    "labtitle": "member",
+    "email": "cilindem@stanford.edu",
+    "bio": "Charlotte Lindemann is a PhD candidate in the department of English, working on 'Unreliable Dialogue: Characters’ Speech and the Disappearing Narrator in Nineteenth Century American Fiction'.",
+    "photo": "/assets/images/people/clindemann.jpg"
+  },
+  {
+    "key": "tllewellyn",
+    "name": "Tanya Llewellyn"
+  },
+  {
+    "key": "amanshel",
+    "name": "Xander Manshel",
+    "email": "alexander.manshel@gmail.com",
+    "status": "alumni",
+    "affiliation": "McGill University"
+  },
+  {
+    "key": "nmavrody",
+    "name": "Nika Mavrody"
+  },
+  {
+    "key": "mmcgurl",
+    "name": "Mark McGurl",
+    "status": "collaborator",
+    "affiliation": "Stanford English Department"
+  },
+  {
+    "key": "dmcclure",
+    "name": "David McClure"
+  },
+  {
+    "key": "lmendelman",
+    "name": "Lisa Mendelman",
+    "status": "collaborator",
+    "affiliation": "Menlo College"
+  },
+  {
+    "key": "lmessarra",
+    "name": "Luca Messarra",
+    "status": "member"
+  },
+  {
+    "key": "amilyakina",
+    "name": "Alexandra Milyakina"
+  },
+  {
+    "key": "jmonaco",
+    "name": "Jessica Monaco",
+    "status": "member",
+    "bio": "Jessica Monaco is a PhD candidate in the Stanford University Department of English. She works primarily on character and the Gothic in British literature from the late eighteenth to late nineteenth century and cross-temporally by drawing from current medieval studies. In the lab, she is coordinating a project using supervised models to explore similarities between the Gothic and adjacent genres.",
+    "photo": "/assets/images/people/jmonaco.jpg"
+  },
+  {
+    "key": "fmoretti",
+    "name": "Franco Moretti"
+  },
+  {
+    "key": "amukamal",
+    "name": "Anna Mukamal",
+    "status": "collaborator",
+    "affiliation": "Coastal Carolina University",
+    "email": "amukamal@coastal.edu"
+  },
+  {
+    "key": "fmuzny",
+    "name": "Felix Muzny",
+    "email": "muzny@colorado.edu",
+    "status": "alumni"
+  },
+  {
+    "key": "gmuzny",
+    "name": "Grace Muzny"
+  },
+  {
+    "key": "nnomura",
+    "name": "Nichole Nomura",
+    "labtitle": "Core Research Team",
+    "email": "nnomura@stanford.edu",
+    "bio": "Nichole Nomura received her PhD from the Stanford University Department of English and is a graduate of Stanford’s Graduate School of Education (M.A). Currently a postdoctoral scholar at C.E.S.T.A., she studies textual difficulty, representations of literary study in school contexts, and how science fiction and young adult literature teach and are taught, using methods from the digital humanities, literary criticism, and education.",
+    "photo": "/assets/images/people/nnomura.jpg"
+  },
+  {
+    "key": "uoh",
+    "name": "Unjoo Oh",
+    "labtitle": "Core Research Team",
+    "bio": "Unjoo Oh is a PhD candidate in English literature at Stanford University. She received her MA degree in English from Sogang University, South Korea. Her research centers around British literature from the fourteenth to seventeenth centuries, especially on how (in)organic nonhumans affect and are affected by the remediation of premodern texts. She is also a graduate coordinator of Renaissances at Stanford.",
+    "email": "ujoh@stanford.edu",
+    "photo": "/assets/images/people/uoh.jpg"
+  },
+  {
+    "key": "dpestre",
+    "name": "Dominique Pestre",
+    "email": "pestre.dominique@gmail.com",
+    "status": "alumni"
+  },
+  {
+    "key": "spetruzzelli",
+    "name": "Stefania Petruzzelli",
+    "email": "stefania.p@hotmail.it",
+    "status": "alumni"
+  },
+  {
+    "key": "tpilipovec",
+    "name": "Tatyana Pilipovec"
+  },
+  {
+    "key": "jporter",
+    "name": "J.D. Porter",
+    "email": "jack.d.porter@gmail.com",
+    "status": "collaborator",
+    "affiliation": "Price Lab; University of Pennsylvania"
+  },
+  {
+    "key": "kreardon",
+    "name": "Kelsey Reardon",
+    "status": "alumni"
+  },
+  {
+    "key": "mrozopaz",
+    "name": "Mariana Rozo Paz"
+  },
+  {
+    "key": "rrisam",
+    "name": "Roopika Risam"
+  },
+  {
+    "key": "rsaldívar",
+    "name": "Ramón Saldívar",
+    "status": "collaborator",
+    "affiliation": "Stanford English Department"
+  },
+  {
+    "key": "sschwarzhappel",
+    "name": "Sarah Sophie Schwarzhappel",
+    "status": "RA"
+  },
+  {
+    "key": "jsensenbaugh",
+    "name": "Jonathan Sensenbaugh"
+  },
+  {
+    "key": "rseow",
+    "name": "Riley Seow"
+  },
+  {
+    "key": "ashelya",
+    "name": "Artjom Shelya"
+  },
+  {
+    "key": "ashepard",
+    "name": "Andrew Shepard",
+    "email": "Andrew.Shephard@utah.edu",
+    "status": "alumni",
+    "affiliation": "University of Utah"
+  },
+  {
+    "key": "asherman",
+    "name": "Alex Sherman",
+    "labtitle": "Core Research Team",
+    "email": "ajsherm@stanford.edu",
+    "bio": "Alex Sherman is a Ph.D. candidate in English at Stanford University. He studies literature and science, maritime colonialism, and Gothic fiction, focusing on the British empire in the eighteenth century. His work with the Literary Lab has appeared in The Journal of Cultural Analytics and Post45. He is also a graduate coordinator at the Center for the Study of the Novel.",
+    "photo": "/assets/images/people/asherman.jpg"
+  },
+  {
+    "key": "esibilio",
+    "name": "Elisabetta Sibilio",
+    "email": "e.sibilio@unicas.it",
+    "status": "alumni",
+    "affiliation": "Università degli studi di Cassino"
+  },
+  {
+    "key": "msiegal",
+    "name": "Micah Siegal",
+    "email": "msiegel9@stanford.edu",
+    "status": "alumni"
+  },
+  {
+    "key": "osobchuk",
+    "name": "Oleg Sobchuk",
+    "email": "kuchbos@gmail.com",
+    "status": "alumni",
+    "affiliation": "University of Tartu"
+  },
+  {
+    "key": "jtackett",
+    "name": "Justin Tackett"
+  },
+  {
+    "key": "rta",
+    "name": "Regina T.H. Ta",
+    "status": "alumni",
+    "email": "rta@stanford.edu"
+  },
+  {
+    "key": "mtekgurler",
+    "name": "Merve Tekgürler",
+    "status": "member",
+    "email": "mtekgurl@stanford.edu"
+  },
+  {
+    "key": "kterry",
+    "name": "Kendra Terry",
+    "status": "collaborator",
+    "affiliation": "Derner School of Psychology, Adelphi University"
+  },
+  {
+    "key": "ptinits",
+    "name": "Peeter Tinits"
+  },
+  {
+    "key": "sthomas",
+    "name": "Sarah Thomas"
+  },
+  {
+    "key": "cthong",
+    "name": "Carmen Thong",
+    "labtitle": "Core Research Team",
+    "email": "tcarmen@stanford.edu",
+    "bio": "Carmen Thong is a PhD candidate in English and is completing an MA in Public Policy at Stanford University. She works in the fields of Postcolonial/World Literature and Digital Humanities, and studies how texts from the Global South are discovered within the global literary supply chain. She is also a Knight Hennessy scholar and a Jacobsson Family Stanford Interdisciplinary Graduate Fellow.",
+    "photo": "/assets/images/people/cthong.jpg"
+  },
+  {
+    "key": "etreharne",
+    "name": "Elaine Treharne",
+    "status": "collaborator",
+    "affiliation": "Stanford English Department"
+  },
+  {
+    "key": "hwalser",
+    "name": "Hannah Walser",
+    "email": "hkpmwalser@gmail.com",
+    "status": "alumni",
+    "affiliation": "New York University"
+  },
+  {
+    "key": "mwarner",
+    "name": "Matt Warner",
+    "labtitle": "Associate Director",
+    "email": "mattgw@stanford.edu",
+    "bio": "Matt Warner works on the intersection of queer theory and computational methods. His research focuses on the 20th century history of anglophone queer book publication and circulation, with a particular focus on the history of bibliographies, book recommendation and their connection to queer representation in fiction.",
+    "photo": "/assets/images/people/mwarner.jpg"
+  },
+  {
+    "key": "mwitmore",
+    "name": "Michael Witmore"
+  },
+  {
+    "key": "jwolf",
+    "name": "Jennifer Wolf",
+    "status": "collaborator",
+    "affiliation": "Stanford Graduate School of Education"
+  },
+  {
+    "key": "iyamboliev",
+    "name": "Irena Yamboliev",
+    "status": "alumni"
+  },
+  {
+    "key": "syates",
+    "name": "Sabrina Gabrielle Yates",
+    "email": "syates2@stanford.edu"
+  }
 ]
