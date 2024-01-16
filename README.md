@@ -83,41 +83,41 @@ Publications live in _src/publications_. All publications are listed on the LitL
 
 When there is a new publication, ask the person who wrote it to send you the following information, as exemplified below:
 
-`---
-type: 'article'
-pubkey: 'algeehewitt2020'
-author: 'Algee-Hewitt, Mark and Porter, J.D. and Walser, Hannah'
-title: 'Representing Race and Ethnicity in American Fiction, 1789-1920'
-journal: 'Cultural Analytics'
-volume: '5'
-number: '2'
-url: 'https://culturalanalytics.org/article/18509'
-year: 2020
-group: 'article'
-project: 'representing-race'
----``
+    ---
+    type: 'article'
+    pubkey: 'algeehewitt2020'
+    author: 'Algee-Hewitt, Mark and Porter, J.D. and Walser, Hannah'
+    title: 'Representing Race and Ethnicity in American Fiction, 1789-1920'
+    journal: 'Cultural Analytics'
+    volume: '5'
+    number: '2'
+    url: 'https://culturalanalytics.org/article/18509'
+    year: 2020
+    group: 'article'
+    project: 'representing-race'
+    ---
 
 You can leave off the `project` if it isn't associated with a particular project. Be sure to format the author names exactly like this so the bibliography plugin can handle them correctly.
 
 Pamphlets get a filename of \[llp\]\[pamphlet-number\].md. Pamphlet PDFs should go in _src/assets/pdf_. The pamphlet template is a little different:
 
-`---
-type: 'article'
-pubkey: 'LLP17'
-author: 'J.D. Porter'
-title: 'Popularity/Prestige'
-journal: 'Stanford Literary Lab Pamphlets'
-volume: '17'
-url: 'https://litlab.stanford.edu/LiteraryLabPamphlet17.pdf'
-year: 2018
-project: 'popularity-prestige'
-group: 'pamphlet'
-pamphlet:
-  image: "/assets/images/pamphlets/p17.png"
-  pdf: "LiteraryLabPamphlet17.pdf"
-  pubdate: 2018-09-01
-  blurb: "If canonicity means escaping obscurity, we need a model of the canon that can accommodate multiple methods of being remembered."
----`
+    ---
+    type: 'article'
+    pubkey: 'LLP17'
+    author: 'J.D. Porter'
+    title: 'Popularity/Prestige'
+    journal: 'Stanford Literary Lab Pamphlets'
+    volume: '17'
+    url: 'https://litlab.stanford.edu/LiteraryLabPamphlet17.pdf'
+    year: 2018
+    project: 'popularity-prestige'
+    group: 'pamphlet'
+    pamphlet:
+      image: "/assets/images/pamphlets/p17.png"
+      pdf: "LiteraryLabPamphlet17.pdf"
+      pubdate: 2018-09-01
+      blurb: "If canonicity means escaping obscurity, we need a model of the canon that can accommodate multiple methods of being remembered."
+    ---
 
 ### People
 
