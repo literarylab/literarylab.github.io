@@ -58,7 +58,7 @@ layout: base
       <strong>Publications</strong>
       <ul>
         {% for publication in publications %}
-        <li>{{publication.data.title}}</li>
+        <li><a href="{{publication.data.url | url}}">{{publication.data.title}}</a></li>
         {% endfor %}
       </ul>
       {% endif %}
