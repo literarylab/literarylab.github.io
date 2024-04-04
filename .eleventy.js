@@ -17,6 +17,7 @@ const globalSiteData = {
   title: "Stanford Literary Lab",
   description: "The Stanford Literary Lab is a research collective that applies computational criticism, in all its forms, to the study of literature.",
   locale: 'en',
+  lang: 'en',
   baseUrl: baseUrl,
   pathPrefix: pathPrefix,
 };
