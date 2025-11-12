@@ -22,7 +22,7 @@
     "status": "stanford",
     "email": "malgeehe@stanford.edu",
     "website": "http://markalgeehewitt.org/",
-    "bio": "DIRECTOR. (On leave 2024-25) Mark Algee-Hewitt's research focuses on the eighteenth and early nineteenth centuries in England and Germany and seeks to combine literary criticism with digital and quantitative analyses of literary texts. In particular he is interested in the history of aesthetic theory and the development and transmission of aesthetic and philosophic concepts during the Enlightenment and Romantic periods. He is also interested in the relationship between aesthetic theory and the poetry of the long eighteenth century.",
+    "bio": "DIRECTOR. Mark Algee-Hewitt's research focuses on the eighteenth and early nineteenth centuries in England and Germany and seeks to combine literary criticism with digital and quantitative analyses of literary texts. In particular he is interested in the history of aesthetic theory and the development and transmission of aesthetic and philosophic concepts during the Enlightenment and Romantic periods. He is also interested in the relationship between aesthetic theory and the poetry of the long eighteenth century.",
     "photo": "/assets/images/people/malgeehewitt.jpg"
   },
   {
@@ -35,6 +35,12 @@
   {
     "key": "ealvarado",
     "name": "Ena Alvarado"
+  },
+  {
+    "key": "aanderson",
+    "name": "Austin Anderson",
+    "email": "aaa1042@stanford.edu",
+    "status": "member"
   },
   {
     "key": "kbarrett",
@@ -73,7 +79,7 @@
   {
     "key": "ebrush",
     "name": "Emma Brush",
-    "status": "member",
+    "status": "alumni",
     "email": "ebrush@stanford.edu"
   },
   {
@@ -91,7 +97,7 @@
   {
     "key": "abutlerwall",
     "name": "Annika Butler-Wall",
-    "status": "member"
+    "status": "alumni"
   },
   {
     "key": "mcecire",
@@ -117,7 +123,7 @@
   {
     "key": "sdouris",
     "name": "Steele Douris",
-    "status": "member",
+    "status": "alumni",
     "email": "sdouris@stanford.edu"
   },
   {
@@ -152,7 +158,7 @@
     "key": "mfrank",
     "name": "Morgan Frank",
     "status": "alumni",
-    "affiliation": "Harvard University",
+    "affiliation": "Oxford University",
     "email": "efrank@wesleyan.edu"
   },
   {
@@ -162,9 +168,9 @@
   {
     "key": "efredner",
     "name": "Erik Fredner",
-    "email": "fredner@virginia.edu",
+    "email": "erik.fredner@oregonstate.edu",
     "status": "collaborator",
-    "affiliation": "University of Virginia"
+    "affiliation": "Oregon State University"
   },
   {
     "key": "lgalindoromero",
@@ -196,9 +202,9 @@
   {
     "key": "sguhr",
     "name": "Svenja Guhr",
-    "status": "collaborator",
-    "email": "svenja.guhr@tu-darmstadt.de",
-    "affiliation": "Technical University of Darmstadt"
+    "status": "member",
+    "email": "sguhr@berkeley.edu",
+    "affiliation": "UC Berkeley School of Information"
   },
   {
     "key": "chaberfield",
@@ -218,9 +224,9 @@
   {
     "key": "rheuser",
     "name": "Ryan Heuser",
-    "email": "ryan.heuser@princeton.edu",
+    "email": "rj416@cam.ac.uk",
     "status": "collaborator",
-    "affiliation": "Center for Digital Humanities, Princeton University"
+    "affiliation": "University of Cambridge"
   },
   {
     "key": "mhill",
@@ -269,18 +275,34 @@
     "status": "alumni"
   },
   {
-    "key": "gkeane",
-    "name": "Gabi Keane",
-    "status": "member"
+    "key": "gbirch",
+    "name": "Gabi Birch",
+    "email": "gab03@stanford.edu",
+    "labtitle": "Core Research",
+    "bio": "Gabi Birch is a PhD candidate in the Department of English. Her research explores automation, data, and technology in English-language media in the late nineteenth and early twentieth centuries. Gabi serves as the Literary Lab Coordinator.",
+    "photo": "/assets/images/people/gbirch.jpg"
+  },
+  {
+    "key": "mclifton",
+    "name": "Mallen Clifton",
+    "email": "mclifton@stanford.edu",
+    "labtitle": "Core Research",
+    "bio": "Mallen Clifton is a PhD candidate in English literature at Stanford University. Their research focuses on the intersections of technology and literature, studying both printed and born-digital post-45 literature. They are particularly interested in the history of computation and contemporaneous texts that play with structure, form, and mediation. They are also a Stanford EDGE fellow.",
+    "photo": "/assets/images/people/mclifton.jpg"
   },
   {
     "key": "akeener",
     "name": "Alix Keener",
-    "labtitle": "Core Research Team",
+    "status": "member",
     "email": "alixkee@stanford.edu",
     "bio": "Alix Keener is the Digital Scholarship Coordinator based jointly in Stanford Libraries' Center for Interdisciplinary Digital Research (CIDR) and the Center for Spatial and Textual Analysis (CESTA). Her work focuses on supporting DH research for the Stanford community, with an emphasis on the procurement and curation of humanities data for digital projects (such as text and data mining), as well as the dissemination and sustainability of digital scholarship. She received her MS in Information Science from the University of Michigan.",
     "photo": "/assets/images/people/akeener.jpg"
   },
+  {
+    "key": "ewang",
+    "name": "Emil Miao Wang",
+    "status": "member"
+},
   {
     "key": "mkraxenberger",
     "name": "Maria Kraxenberger",
@@ -292,12 +314,13 @@
     "key": "mkurzynski",
     "name": "Maciej Kurzynski",
     "affiliation": "Lingnan University",
-    "status": "collaborator"
+    "status": "alumni"
   },
   {
     "key": "alamar",
     "name": "Annie K. Lamar",
-    "status": "member",
+    "affiliation": "UC Santa Barbara",
+    "status": "alumni",
     "email": "kalamar@stanford.edu"
   },
   {
@@ -329,7 +352,7 @@
   {
     "key": "zleniarska",
     "name": "Zuza Leniarska",
-    "status": "collaborator",
+    "status": "alumni",
     "affiliation": "University of Warsaw"
   },
   {
@@ -339,7 +362,7 @@
   {
     "key": "clindemann",
     "name": "Charlotte Lindemann",
-    "labtitle": "member",
+    "labtitle": "alumni",
     "email": "cilindem@stanford.edu",
     "bio": "Charlotte Lindemann is a PhD candidate in the department of English, working on 'Unreliable Dialogue: Characters’ Speech and the Disappearing Narrator in Nineteenth Century American Fiction'.",
     "photo": "/assets/images/people/clindemann.jpg"
@@ -387,8 +410,8 @@
   {
     "key": "jmonaco",
     "name": "Jessica Monaco",
-    "status": "member",
-    "bio": "Jessica Monaco is a PhD candidate in the Stanford University Department of English. She works primarily on character and the Gothic in British literature from the late eighteenth to late nineteenth century and cross-temporally by drawing from current medieval studies. In the lab, she is coordinating a project using supervised models to explore similarities between the Gothic and adjacent genres.",
+    "labtitle": "Core Research",
+    "bio": "Jessica Monaco is a PhD candidate in English at Stanford University. Her research both inside and outside of the Literary Lab concerns nineteenth-century British novels. In particular, she studies how writers of Gothic novels reimagine and repurpose formal and generic aspects of medieval romance in their work.",
     "photo": "/assets/images/people/jmonaco.jpg"
   },
   {
@@ -415,9 +438,9 @@
   {
     "key": "nnomura",
     "name": "Nichole Nomura",
-    "labtitle": "Associate Director",
-    "email": "nnomura@stanford.edu",
-    "bio": "ASSOCIATE DIRECTOR. Nichole Nomura received her PhD from the Stanford University Department of English and is a graduate of Stanford’s Graduate School of Education (M.A). Currently a postdoctoral scholar at C.E.S.T.A., she studies textual difficulty, representations of literary study in school contexts, and how science fiction and young adult literature teach and are taught, using methods from the digital humanities, literary criticism, and education.",
+    "status": "member",
+    "affiliation": "University of Wyoming",
+    "email": "nnomura@uwyo.edu",
     "photo": "/assets/images/people/nnomura.jpg"
   },
   {
@@ -496,10 +519,10 @@
   },
   {
     "key": "asherman",
-    "name": "Alex Sherman",
-    "labtitle": "Core Research Team",
-    "email": "ajsherm@stanford.edu",
-    "bio": "Alex Sherman is a Ph.D. candidate in English at Stanford University. He studies literature and science, maritime colonialism, and Gothic fiction, focusing on the British empire in the eighteenth century. His work with the Literary Lab has appeared in The Journal of Cultural Analytics and Post45. He is also a graduate coordinator at the Center for the Study of the Novel.",
+    "name": "Alexander Sherman",
+    "status": "member",
+    "affiliation": "University of Texas at Austin",
+    "email": "alexander.sherman@austin.utexas.edu",
     "photo": "/assets/images/people/asherman.jpg"
   },
   {
@@ -576,9 +599,8 @@
   {
     "key": "mwarner",
     "name": "Matt Warner",
-    "labtitle": "Associate Director",
+    "status": "member",
     "email": "mattgw@stanford.edu",
-    "bio": "ASSOCIATE DIRECTOR. Matt Warner works on the intersection of queer theory and computational methods. His research focuses on the 20th century history of anglophone queer book publication and circulation, with a particular interest in the history of bibliographies, book recommendation and their connection to queer representation in fiction. Current research projects include a study of the representation of queer characters in young adult fiction and a computational exploration of the history of topic, subject and \"aboutness\" in literary criticism.",
     "photo": "/assets/images/people/mwarner.jpg"
   },
   {
