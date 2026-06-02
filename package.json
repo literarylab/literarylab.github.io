@@ -45,7 +45,8 @@
     "postcss": "^8.3.5",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.35.2",
-    "sass-loader": "^12.6.0"
+    "sass-loader": "^12.6.0",
+    "webpack": "^5.60.0"
   },
   "dependencies": {
     "@uda/bento-components": "^2.11.4"
